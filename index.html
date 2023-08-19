@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Color picker | Canvas pixel manipulation</title>
+    <link rel = "stylesheet" href = "style.css"/>
+  </head>
+  <body>
+    <input type = 'file' onchange="upload(event)"/>
+    <button onclick = "undo()">Undo</button>
+    <button onclick = "rgb2gray()">To grayscale</button>
+    <button onclick = "toNegative()">To negative</button>
+    <button onclick = "logTransformation()">Logarithmic transform</button>
+    <canvas id = "image"></canvas>
+    <script src = "upload.js"></script>
+    <script src = "transformations.js"></script>
+  </body>
+</html>

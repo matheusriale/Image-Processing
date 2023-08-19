@@ -1,0 +1,24 @@
+var canvas = document.getElementById("image"); // criar canvas (representa desenho)
+var context = canvas.getContext("2d");         // estrutura que recebe dados para desenho
+var pixels = undefined;
+var image = new Image();
+function upload(event){       // função chamada
+    image.onload = function(){  // Chamada pos carregamento da imagem (transforma URL em estrutura de image)
+        URL.revokeObjectURL(image.src);
+
+    }
+    image.src = URL.createObjectURL(event.target.files[0]); //Pegar link da imagem
+    image.addEventListener("load",()=>{   // Força tag a ter certo comportamento
+        canvas.width = 500;
+        canvas.height = (500/image.width) *image.height;
+        context.drawImage(image,0,0,canvas.width,canvas.height); // Desenhar imagem dentro do contexto
+        pixels  = context.getImageData(0,0,canvas.width,canvas.height); // Captura pixels da imagem
+        image.style.display="none"; // Não mostrar a imagem
+        // Vemos apenas o Canvas
+        
+    })
+}
+function undo(){
+    context.drawImage(image,0,0,canvas.width,canvas.height)
+    pixels  = context.getImageData(0,0,canvas.width,canvas.height);
+}
