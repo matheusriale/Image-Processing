@@ -1,0 +1,14 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    width:min-content;
+    background: #171923;
+    display: flex;
+    flex-direction: column;
+}
+canvas{
+    width: min-content;
+    height: min-content;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Processamento de Imagens - Trabalho 1
+    </title>
+    <link rel = "stylesheet" href = "style.css"/>
+  </head>
+  <body>
+    <input type = 'file' onchange="upload(event)"/>
+    <button onclick = "undo()">Undo</button>
+    <button onclick = "rgb2gray()">To grayscale</button>
+    <button onclick = "toNegative()">To negative</button>
+    <button onclick = "logTransformation()">Logarithmic transform</button>
+    <button onclick = "drawHistogram()">hist</button>
+    <input type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" />
+    <input type = "number" min = "0" onchange = "get1(event.target.value)" step = "1">
+    <input type = "number" min = "0" onchange = "get2(event.target.value)" step = "1">
+    <input type = "number" min = "0" onchange = "get3(event.target.value)" step = "1">
+    <input type = "number" min = "0" onchange = "get4(event.target.value)" step = "1">
+    <canvas id = "image"></canvas>
+    <canvas id = "histogram" width = "400" height = "150"></canvas>
+    <script src = "upload.js"></script>
+    <script src = "histogram.js"></script>
+    <script src = "transformations.js"></script>
+  </body>
+</html>
