@@ -118,10 +118,3 @@ function piecewiseLinear(r1,s1,r2,s2){ //r1 deve ser menor que r2.
 
 
 
-
-
-
-
-
-
-
