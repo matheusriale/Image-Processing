@@ -12,15 +12,13 @@
     <button onclick = "rgb2gray()">To grayscale</button>
     <button onclick = "toNegative()">To negative</button>
     <button onclick = "logTransformation()">Logarithmic transform</button>
-    <button onclick = "drawHistogram()">hist</button>
-    <input type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" />
-    <input type = "number" min = "0" onchange = "get1(event.target.value)" step = "1">
-    <input type = "number" min = "0" onchange = "get2(event.target.value)" step = "1">
-    <input type = "number" min = "0" onchange = "get3(event.target.value)" step = "1">
-    <input type = "number" min = "0" onchange = "get4(event.target.value)" step = "1">
+    <div id ="gammabox"><label for ="gamma">Gamma Transformation</label><input id = "gamma" type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" /></div>
+
     <canvas id = "image"></canvas>
     <canvas id = "histogram" width = "400" height = "150"></canvas>
+    <canvas id = "graph" width = "300" height = "300"></canvas>
     <script src = "upload.js"></script>
+    <script src = "graph.js"></script>
     <script src = "histogram.js"></script>
     <script src = "transformations.js"></script>
   </body>

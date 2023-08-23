@@ -12,3 +12,7 @@ canvas{
     width: min-content;
     height: min-content;
 }
+#graph{background: white;}
+label{
+    color:white;
+}
