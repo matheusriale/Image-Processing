@@ -75,8 +75,12 @@ function piecewiseLinear(r1, s1, r2, s2) {
   let copypixels = pixels; //copiar valores, novo array
   //variaveis das funcoes lineares
 
-  const pf_x = 255, pf_y = 255, a_i = s1 / r1, b_i = 0;
-  const a = (s2 - s1) / (r2 - r1), b = s1 - a * r1,
+  const pf_x = 255,
+    pf_y = 255,
+    a_i = s1 / r1,
+    b_i = 0;
+  const a = (s2 - s1) / (r2 - r1),
+    b = s1 - a * r1,
     a_f = (pf_y - s2) / (pf_x - r2),
     b_f = s2 - a_f * r2;
 
@@ -90,7 +94,7 @@ function piecewiseLinear(r1, s1, r2, s2) {
       data[i] = a * original_copy[i] + b;
     } else {
       data[i] = a_f * original_copy[i] + b_f;
-    } 
+    }
 
     //intensidade do verde
     if (original_copy[i + 1] < r1) {
@@ -116,3 +120,58 @@ function piecewiseLinear(r1, s1, r2, s2) {
   getFrequencies();
   drawHistogram();
 }
+function histEqualize() {
+  let copypixels = pixels;
+  let probabilities = hist;
+  let sk = Array(256).fill(0.0)
+  let mn = canvas.width * canvas.height;
+  let data = copypixels.data;
+
+  for (let i = 0; i < 256; i = i + 1) {
+    probabilities[i] = (hist[i] / mn)/3; // 3 CANAIS, caso seja apenas 1 nao dividir 
+
+  } 
+  for (let i = 1; i<probabilities.length; i = i + 1){
+    probabilities[i] = probabilities[i]+probabilities[i-1];                                     
+  }
+
+  for (let i = 0;i<probabilities.length;i++){
+    sk[i] = Math.round(255.0*probabilities[i]);
+    
+  }
+  for (let i = 0; i<pixels.data.length;i = i+4){
+    data[i]=sk[original_copy[i]]
+    data[i+1]=sk[original_copy[i+1]]
+    data[i+2]=sk[original_copy[i+2]]
+
+  }
+  context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+  getFrequencies();
+  drawHistogram();
+
+  
+
+
+}
+
+/* 
+r_final = 0;
+g_final = 0;
+b_final = 0;
+    
+  for i <length etc ...{
+    r=Math.abs(255*(FREQUENCIA DAQUELA INTENSIDADE DE VERMELHO / MN))
+    g=Math.abs(255(FREQUENCIA DAQUELA INTENSIDADE DE VERDE / MN))
+    b=Math.abs(255(FREQUENCIA DAQUELA INTENSIDADE DE AZUL / MN))
+    const j = 0; 
+    for j = 0 a i{
+          r_final = r + r_final;
+          g_final = g + g_final;
+          b_final = b + b_final;
+          if (j == i){
+            data[i] = r_final;
+            data[i + 1] = g_final;
+            data[i + 2] = b_final;
+          }
+    }
+}*/

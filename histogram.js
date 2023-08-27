@@ -50,3 +50,28 @@ function drawHistogram(){
     
     }
 }
+
+// HIST GRAYSCALE
+// function getFrequencies(){
+//     //receber pixels
+//     const data = pixels.data;
+//     hist = new Array(256).fill(0);
+//     means = new Array(data.length).fill(0);
+//     max_frequency = 0;
+ 
+//     for (i = 0; i < data.length; i = i + 1) {
+//       means[i] = (data[i] + data[i + 1] + data[i + 2]) / 3;
+//     }
+
+//     for (let i = 0; i<pixels.data.length;i = i + 4){
+        
+//         hist[means[i]] = hist[means[i]] + 1; // Calc de Frequencias
+//     }
+    
+//     for (let i = 0;i<256;i++){
+//         if (hist[i]>max_frequency){
+//             max_frequency = hist[i];
+//         }
+//     }
+    
+// }
