@@ -59,8 +59,9 @@ function drawHistogram(){
 //     means = new Array(data.length).fill(0);
 //     max_frequency = 0;
  
-//     for (i = 0; i < data.length; i = i + 1) {
+//     for (i = 0; i < pixels.data.length; i = i + 4) {
 //       means[i] = (data[i] + data[i + 1] + data[i + 2]) / 3;
+//       if (means[i]>max_intensity){max_intensity = means[i]}
 //     }
 
 //     for (let i = 0; i<pixels.data.length;i = i + 4){
