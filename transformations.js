@@ -166,8 +166,20 @@ function thresholding(t){
   }
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  getFrequencies();
+  getFrequencies();'  '
   drawHistogram();
+
+}
+
+function convolutionMean(dim){
+
+}
+
+function convolutionMedian(dim){
+
+}
+
+function convolution(filter){
 
 }
 
