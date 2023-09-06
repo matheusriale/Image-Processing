@@ -16,7 +16,8 @@
     <button onclick = "histEqualize()">Histogram Equalize</button>
     <div id ="gammabox"><label for ="gamma">Gamma Transformation</label><input id = "gamma" type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" /></div>
     <div id ="thresholding"><label for ="gamma">Thresholding</label><input id = "gamma" type ="number" min = "0" onchange = "thresholding(event.target.value)" step="1.0" /></div>
-    <button onclick = "histEqualize()">Histogram Equalize</button>
+    <button onclick = "convolutionGauss()">Convolution Gauss 3x3</button>
+    <button onclick = "convolutionLaplace()">Convolution Laplace 3x3</button>
 
     <canvas id = "image"></canvas>
     <canvas id = "histogram" width = "400" height = "150"></canvas>
