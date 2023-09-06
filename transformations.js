@@ -1,21 +1,3 @@
-var r1 = 0,
-  r2 = 0,
-  s1 = 0,
-  s2 = 0;
-function get1(value) {
-  r1 = value;
-}
-function get2(value) {
-  r2 = value;
-}
-function get3(value) {
-  s1 = value;
-}
-function get4(value) {
-  s2 = value;
-  piecewiseLinear(r1, r2, s1, s2);
-}
-
 function rgb2gray() {
   const data = pixels.data;
   for (i = 0; i < data.length; i = i + 4) {
@@ -166,21 +148,18 @@ function thresholding(t){
   }
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  getFrequencies();'  '
+  getFrequencies();
   drawHistogram();
 
 }
 
 function convolutionMean(dim){
-
 }
 
 function convolutionMedian(dim){
-
 }
 
 function convolution(filter){
-
 }
 
 
