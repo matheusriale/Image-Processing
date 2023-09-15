@@ -6,12 +6,16 @@
 
 - Exemplo do GIMP: https://docs.gimp.org/en/gimp-layer-equalize.html
 
+- Limiarização por canais e geral.
+
 ### Implementações por fazer
 
-- Aplicação de filtro genérico por convolução; 
-- Filtro de suavização da média (simples e ponderado); 
+- Aplicação de filtro genérico por convolução;
+  
+- Filtro de suavização da média (simples e ponderado);
+  
 - Filtragem pela mediana.
-
+  
 Deve ser possível o usuário escolher o tamanho do filtro. Só são necessários filtros quadrados de dimensões ímpares: 3x3, 5x5, 7x7, 9x9, etc. O tamanho máximo deve ser, pelo menos, 9x9 (pode ser maior). A imagem processada deve ter o mesmo tamanho da imagem original.
 
 - Aguçamento (nitidez) por Laplaciano e High-Boost
