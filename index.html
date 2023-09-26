@@ -18,8 +18,10 @@
     <div id ="thresholding"><label for ="gamma">Thresholding</label><input id = "gamma" type ="number" min = "0" onchange = "thresholding(event.target.value)" step="1.0" /></div>
     <button onclick = "convolutionGauss3x3()">Convolution Gauss 3x3</button>
     <button onclick = "convolutionGauss5x5()">Convolution Gauss 5x5</button>
+    <button onclick = "convolutionGauss7x7()">Convolution Gauss 7x7</button>
     <button onclick = "convolutionLaplace3x3()">Convolution Laplace 3x3</button>
     <button onclick = "convolutionLaplace5x5()">Convolution Laplace 5x5</button>
+    <button onclick = "convolutionLaplace7x7()">Convolution Laplace 7x7</button>
 
     <canvas id = "image"></canvas>
     <canvas id = "histogram" width = "400" height = "150"></canvas>
@@ -31,8 +33,10 @@
     <script src = "histogram.js"></script>
     <script src = "transformations.js"></script>
     <script src = "utils.js"></script>
+    <script src = "convolution.js"></script>
     <script src = "convolution3.js"></script>
     <script src = "convolution5.js"></script>
     <script src = "convolution7.js"></script>
+    <script src = "convolution9.js"></script>
   </body>
 </html>

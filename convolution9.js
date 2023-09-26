@@ -1,5 +1,5 @@
 
-function convolution7x7(kernel) {
+function convolution9x9(kernel) {
     let copypixels = pixels; //copiar valores, novo array
     let data = copypixels.data;
     /*
