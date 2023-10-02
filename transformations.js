@@ -1,6 +1,6 @@
 function rgb2gray() {
   const data = pixels.data;
-  for (i = 0; i < data.length; i = i + 4) {
+  for (let i = 0; i < data.length; i = i + 4) {
     const mean = (data[i] + data[i + 1] + data[i + 2]) / 3;
     data[i] = mean;
     data[i + 1] = mean;
@@ -9,6 +9,7 @@ function rgb2gray() {
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   getFrequencies();
   drawHistogram();
+
 }
 
 function toNegative() {
@@ -18,6 +19,7 @@ function toNegative() {
     data[i + 1] = 255 - data[i + 1];
     data[i + 2] = 255 - data[i + 2];
   }
+  
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   getFrequencies();
   drawHistogram();
@@ -153,24 +155,3 @@ function thresholding(t){
 
 }
 
-/* 
-r_final = 0;
-g_final = 0;
-b_final = 0;
-    
-  for i <length etc ...{
-    r=Math.abs(255*(FREQUENCIA DAQUELA INTENSIDADE DE VERMELHO / MN))
-    g=Math.abs(255(FREQUENCIA DAQUELA INTENSIDADE DE VERDE / MN))
-    b=Math.abs(255(FREQUENCIA DAQUELA INTENSIDADE DE AZUL / MN))
-    const j = 0; 
-    for j = 0 a i{
-          r_final = r + r_final;
-          g_final = g + g_final;
-          b_final = b + b_final;
-          if (j == i){
-            data[i] = r_final;
-            data[i + 1] = g_final;
-            data[i + 2] = b_final;
-          }
-    }
-}*/

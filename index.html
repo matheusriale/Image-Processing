@@ -14,7 +14,8 @@
     <button onclick = "toNegative()">To negative</button>
     <button onclick = "logTransformation()">Logarithmic transform</button>
     <button onclick = "histEqualize()">Histogram Equalize</button>
-    <div id ="gammabox"><label for ="gamma">Gamma Transformation</label><input id = "gamma" type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" /></div>
+    <div id ="Steganography"><label for ="gamma">Gamma Transformation</label><input id = "gamma" type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" /></div>
+    <div id ="gammabox"><label for ="number">Binary to Binary List</label><input id = "number" type ="string" min = "0" onchange = "encrypt(event.target.value)" step=".25" /></div>
     <div id ="thresholding"><label for ="gamma">Thresholding</label><input id = "gamma" type ="number" min = "0" onchange = "thresholding(event.target.value)" step="1.0" /></div>
     <button onclick = "convolutionGauss3x3()">Convolution Gauss 3x3</button>
     <button onclick = "convolutionGauss5x5()">Convolution Gauss 5x5</button>
@@ -33,6 +34,7 @@
     <script src = "histogram.js"></script>
     <script src = "transformations.js"></script>
     <script src = "utils.js"></script>
+    <script src = "steganography.js"></script>
     <script src = "convolution.js"></script>
     <script src = "convolution3.js"></script>
     <script src = "convolution5.js"></script>
