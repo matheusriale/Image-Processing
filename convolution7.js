@@ -98,9 +98,9 @@ function convolution7x7(kernel, mediana) {
                 pixel6r = data[i+4+4-canvas.width*4*3]; // original_copy
                 pixel6g = data[i+5+4-canvas.width*4*3]; // original_copy
                 pixel6b = data[i+6+4-canvas.width*4*3]; // original_copy
-                pixel7r = data[i+4+4+4-canvas.width*4*2]; // original_copy
-                pixel7g = data[i+5+4+4-canvas.width*4*2]; // original_copy
-                pixel7b = data[i+6+4+4-canvas.width*4*2]; // original_copy
+                pixel7r = data[i+4+4+4-canvas.width*4*3]; // original_copy
+                pixel7g = data[i+5+4+4-canvas.width*4*3]; // original_copy
+                pixel7b = data[i+6+4+4-canvas.width*4*3]; // original_copy
             }
         }
 
@@ -123,7 +123,7 @@ function convolution7x7(kernel, mediana) {
                 pixel10g = data[i-3-canvas.width*4*2]; // original_copy
                 pixel10b = data[i-2-canvas.width*4*2]; // original_copy
             }
-            // Se estiver na segunda coluna da imagem, pixels 8 serão zerados:
+            // Se estiver na terceira coluna da imagem, pixels 8 serão zerados:
             else if (i%(canvas.width*4)===8) {
                 pixel8r = pixel8g = pixel8b = 0;
                 pixel9r = data[i-4-4-canvas.width*4*2]; // original_copy
@@ -162,7 +162,7 @@ function convolution7x7(kernel, mediana) {
                 pixel12b = data[i+6-canvas.width*4*2]; // original_copy
             }
             // Se estiver na antepenúltima coluna da imagem, pixels 14 serão zerados:
-            else if (i%(canvas.width*4)===(canvas.width*4)-7) {
+            else if (i%(canvas.width*4)===(canvas.width*4)-9) {
                 pixel14r = pixel14g = pixel14b = 0;
                 pixel12r = data[i+4-canvas.width*4*2]; // original_copy
                 pixel12g = data[i+5-canvas.width*4*2]; // original_copy
@@ -204,7 +204,7 @@ function convolution7x7(kernel, mediana) {
                 pixel17g = data[i-3-canvas.width*4]; // original_copy
                 pixel17b = data[i-2-canvas.width*4]; // original_copy
             }
-            // Se estiver na segunda coluna da imagem, pixels 15 serão zerados:
+            // Se estiver na terceira coluna da imagem, pixels 15 serão zerados:
             else if (i%(canvas.width*4)===8) {
                 pixel15r = pixel15g = pixel15b = 0;
                 pixel16r = data[i-4-4-canvas.width*4]; // original_copy
@@ -279,7 +279,7 @@ function convolution7x7(kernel, mediana) {
             pixel24g = data[i-3]; // original_copy
             pixel24b = data[i-2]; // original_copy
         }
-        // Se estiver na segunda coluna da imagem, pixels 22 serão zerados:
+        // Se estiver na terceira coluna da imagem, pixels 22 serão zerados:
         else if (i%(canvas.width*4)===8) {
             pixel22r = pixel22g = pixel22b = 0;
             pixel23r = data[i-4-4]; // original_copy
@@ -317,8 +317,8 @@ function convolution7x7(kernel, mediana) {
             pixel26g = data[i+5]; // original_copy
             pixel26b = data[i+6]; // original_copy
         }
-        // Se estiver na penúltima coluna da imagem, pixels 28 serão zerados:
-        else if (i%(canvas.width*4)===(canvas.width*4)-5) {
+        // Se estiver na antepenúltima coluna da imagem, pixels 28 serão zerados:
+        else if (i%(canvas.width*4)===(canvas.width*4)-9) {
             pixel28r = pixel28g = pixel28b = 0;
             pixel26r = data[i+4]; // original_copy
             pixel26g = data[i+5]; // original_copy
@@ -359,7 +359,7 @@ function convolution7x7(kernel, mediana) {
                 pixel31g = data[i-3+canvas.width*4]; // original_copy
                 pixel31b = data[i-2+canvas.width*4]; // original_copy
             }
-            // Se estiver na segunda coluna da imagem, pixels 29 serão zerados:
+            // Se estiver na terceira coluna da imagem, pixels 29 serão zerados:
             else if (i%(canvas.width*4)===8) {
                 pixel29r = pixel29g = pixel29b = 0;
                 pixel30r = data[i-4-4+canvas.width*4]; // original_copy

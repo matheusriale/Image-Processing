@@ -3,189 +3,258 @@ function convolution9x9(kernel, mediana) {
     let copypixels = pixels; //copiar valores, novo array
     let data = copypixels.data;
     /*
-    pixel1   pixel2   pixel3   pixel4   pixel5   pixel6   pixel7
-    pixel8   pixel9   pixel10  pixel11  pixel12  pixel13  pixel14
-    pixel15  pixel16  pixel17  pixel18  pixel19  pixel20  pixel21
-    pixel22  pixel23  pixel24  PIXEL25  pixel26  pixel27  pixel28
-    pixel29  pixel30  pixel31  pixel32  pixel33  pixel34  pixel35
-    pixel36  pixel37  pixel38  pixel39  pixel40  pixel41  pixel42
-    pixel43  pixel44  pixel45  pixel46  pixel47  pixel48  pixel49
+    pixel1   pixel2   pixel3   pixel4   pixel5   pixel6   pixel7   pixel8   pixel9
+    pixel10  pixel11  pixel12  pixel13  pixel14  pixel15  pixel16  pixel17  pixel18
+    pixel19  pixel20  pixel21  pixel22  pixel23  pixel24  pixel25  pixel26  pixel27
+    pixel28  pixel29  pixel30  pixel31  pixel32  pixel33  pixel34  pixel35  pixel36
+    pixel37  pixel38  pixel39  pixel40  PIXEL41  pixel42  pixel43  pixel44  pixel45
+    pixel46  pixel47  pixel48  pixel49  pixel50  pixel51  pixel52  pixel53  pixel54
+    pixel55  pixel56  pixel57  pixel58  pixel59  pixel60  pixel61  pixel62  pixel63
+    pixel64  pixel65  pixel66  pixel67  pixel68  pixel69  pixel70  pixel71  pixel72
+    pixel73  pixel74  pixel75  pixel76  pixel77  pixel78  pixel79  pixel80  pixel81
     */
 
-    let pixel1r, pixel1g, pixel1b, pixel2r, pixel2g, pixel2b, pixel3r, pixel3g, pixel3b, pixel4r, pixel4g, pixel4b, pixel5r, pixel5g, pixel5b, pixel6r, pixel6g, pixel6b, pixel7r, pixel7g, pixel7b;
-    let pixel8r, pixel8g, pixel8b, pixel9r, pixel9g, pixel9b, pixel10r, pixel10g, pixel10b, pixel11r, pixel11g, pixel11b, pixel12r, pixel12g, pixel12b, pixel13r, pixel13g, pixel13b, pixel14r, pixel14g, pixel14b;
-    let pixel15r, pixel15g, pixel15b, pixel16r, pixel16g, pixel16b, pixel17r, pixel17g, pixel17b, pixel18r, pixel18g, pixel18b, pixel19r, pixel19g, pixel19b, pixel20r, pixel20g, pixel20b, pixel21r, pixel21g, pixel21b;
-    let pixel22r, pixel22g, pixel22b, pixel23r, pixel23g, pixel23b, pixel24r, pixel24g, pixel24b, pixel25r, pixel25g, pixel25b, pixel26r, pixel26g, pixel26b, pixel27r, pixel27g, pixel27b, pixel28r, pixel28g, pixel28b;
-    let pixel29r, pixel29g, pixel29b, pixel30r, pixel30g, pixel30b, pixel31r, pixel31g, pixel31b, pixel32r, pixel32g, pixel32b, pixel33r, pixel33g, pixel33b, pixel34r, pixel34g, pixel34b, pixel35r, pixel35g, pixel35b;
-    let pixel36r, pixel36g, pixel36b, pixel37r, pixel37g, pixel37b, pixel38r, pixel38g, pixel38b, pixel39r, pixel39g, pixel39b, pixel40r, pixel40g, pixel40b, pixel41r, pixel41g, pixel41b, pixel42r, pixel42g, pixel42b;
-    let pixel43r, pixel43g, pixel43b, pixel44r, pixel44g, pixel44b, pixel45r, pixel45g, pixel45b, pixel46r, pixel46g, pixel46b, pixel47r, pixel47g, pixel47b, pixel48r, pixel48g, pixel48b, pixel49r, pixel49g, pixel49b;
+    let pixel1r, pixel1g, pixel1b, pixel2r, pixel2g, pixel2b, pixel3r, pixel3g, pixel3b, pixel4r, pixel4g, pixel4b, pixel5r, pixel5g, pixel5b, pixel6r, pixel6g, pixel6b, pixel7r, pixel7g, pixel7b, pixel8r, pixel8g, pixel8b, pixel9r, pixel9g, pixel9b;
+    let pixel10r, pixel10g, pixel10b, pixel11r, pixel11g, pixel11b, pixel12r, pixel12g, pixel12b, pixel13r, pixel13g, pixel13b, pixel14r, pixel14g, pixel14b, pixel15r, pixel15g, pixel15b, pixel16r, pixel16g, pixel16b, pixel17r, pixel17g, pixel17b, pixel18r, pixel18g, pixel18b;
+    let pixel19r, pixel19g, pixel19b, pixel20r, pixel20g, pixel20b, pixel21r, pixel21g, pixel21b, pixel22r, pixel22g, pixel22b, pixel23r, pixel23g, pixel23b, pixel24r, pixel24g, pixel24b, pixel25r, pixel25g, pixel25b, pixel26r, pixel26g, pixel26b, pixel27r, pixel27g, pixel27b;
+    let pixel28r, pixel28g, pixel28b, pixel29r, pixel29g, pixel29b, pixel30r, pixel30g, pixel30b, pixel31r, pixel31g, pixel31b, pixel32r, pixel32g, pixel32b, pixel33r, pixel33g, pixel33b, pixel34r, pixel34g, pixel34b, pixel35r, pixel35g, pixel35b, pixel36r, pixel36g, pixel36b;
+    let pixel37r, pixel37g, pixel37b, pixel38r, pixel38g, pixel38b, pixel39r, pixel39g, pixel39b, pixel40r, pixel40g, pixel40b, pixel41r, pixel41g, pixel41b, pixel42r, pixel42g, pixel42b, pixel43r, pixel43g, pixel43b, pixel44r, pixel44g, pixel44b, pixel45r, pixel45g, pixel45b;
+    let pixel46r, pixel46g, pixel46b, pixel47r, pixel47g, pixel47b, pixel48r, pixel48g, pixel48b, pixel49r, pixel49g, pixel49b, pixel50r, pixel50g, pixel50b, pixel51r, pixel51g, pixel51b, pixel52r, pixel52g, pixel52b, pixel53r, pixel53g, pixel53b, pixel54r, pixel54g, pixel54b;
+    let pixel55r, pixel55g, pixel55b, pixel56r, pixel56g, pixel56b, pixel57r, pixel57g, pixel57b, pixel58r, pixel58g, pixel58b, pixel59r, pixel59g, pixel59b, pixel60r, pixel60g, pixel60b, pixel61r, pixel61g, pixel61b, pixel62r, pixel62g, pixel62b, pixel63r, pixel63g, pixel63b;
+    let pixel64r, pixel64g, pixel64b, pixel65r, pixel65g, pixel65b, pixel66r, pixel66g, pixel66b, pixel67r, pixel67g, pixel67b, pixel68r, pixel68g, pixel68b, pixel69r, pixel69g, pixel69b, pixel70r, pixel70g, pixel70b, pixel71r, pixel71g, pixel71b, pixel72r, pixel72g, pixel72b;
+    let pixel73r, pixel73g, pixel73b, pixel74r, pixel74g, pixel74b, pixel75r, pixel75g, pixel75b, pixel76r, pixel76g, pixel76b, pixel77r, pixel77g, pixel77b, pixel78r, pixel78g, pixel78b, pixel79r, pixel79g, pixel79b, pixel80r, pixel80g, pixel80b, pixel81r, pixel81g, pixel81b;
 
-    // Laço que define os valores dos pixels 1 a 49 baseado na imagem:
+    // Laço que define os valores dos pixels 1 a 81 baseado na imagem:
     for (i = 0; i < data.length; i = i + 4) {
         
-        // TRATANDO OS PIXELS 1 A 7:
-        // Se estiver na primeira, segunda ou terceira linha da imagem, pixels 1 a 7 serão zerados:
+        // TRATANDO OS PIXELS 1 A 9:
+        // Se estiver na primeira, segunda, terceira ou quarta linha da imagem, pixels 1 a 9 serão zerados:
+        if (i<canvas.width*4*4) {
+            pixel1r = pixel1g = pixel1b = pixel2r = pixel2g = pixel2b = pixel3r = pixel3g = pixel3b = pixel4r = pixel4g = pixel4b = pixel5r = pixel5g = pixel5b = pixel6r = pixel6g = pixel6b = pixel7r = pixel7g = pixel7b =  pixel8r = pixel8g = pixel8b = pixel9r = pixel9g = pixel9b = 0;
+        }
+        // Se estiver em qualquer linha da imagem menos a primeira, segunda, terceira e quarta:
+        else {
+            // Pixels 1, 2, 3 e 4:
+            // Se estiver na primeira coluna da imagem, pixels 1, 2, 3 e 4 serão zerados:
+            if (i%(canvas.width*4)===0) {
+                pixel1r = pixel1g = pixel1b = pixel2r = pixel2g = pixel2b = pixel3r = pixel3g = pixel3b = pixel4r = pixel4g = pixel4b = 0;
+            }
+            // Se estiver na segunda coluna da imagem, pixels 1, 2 e 3 serão zerados:
+            else if (i%(canvas.width*4)===4) {
+                pixel1r = pixel1g = pixel1b = pixel2r = pixel2g = pixel2b = pixel3r = pixel3g = pixel3b = 0;
+                pixel4r = data[i-4-canvas.width*4*4]; // original_copy
+                pixel4g = data[i-3-canvas.width*4*4]; // original_copy
+                pixel4b = data[i-2-canvas.width*4*4]; // original_copy
+            }
+            // Se estiver na terceira coluna da imagem, pixels 1 e 2 serão zerados:
+            else if (i%(canvas.width*4)===8) {
+                pixel1r = pixel1g = pixel1b = pixel2r = pixel2g = pixel2b = 0;
+                pixel3r = data[i-4-4-canvas.width*4*4]; // original_copy
+                pixel3g = data[i-3-4-canvas.width*4*4]; // original_copy
+                pixel3b = data[i-2-4-canvas.width*4*4]; // original_copy
+                pixel4r = data[i-4-canvas.width*4*4]; // original_copy
+                pixel4g = data[i-3-canvas.width*4*4]; // original_copy
+                pixel4b = data[i-2-canvas.width*4*4]; // original_copy
+            }
+            // Se estiver na quarta coluna da imagem, pixels 1 serão zerados:
+            else if (i%(canvas.width*4)===12) {
+                pixel1r = pixel1g = pixel1b = 0;
+                pixel2r = data[i-4-4-4-canvas.width*4*4]; // original_copy
+                pixel2g = data[i-3-4-4-canvas.width*4*4]; // original_copy
+                pixel2b = data[i-2-4-4-canvas.width*4*4]; // original_copy
+                pixel3r = data[i-4-4-canvas.width*4*4]; // original_copy
+                pixel3g = data[i-3-4-canvas.width*4*4]; // original_copy
+                pixel3b = data[i-2-4-canvas.width*4*4]; // original_copy
+                pixel4r = data[i-4-canvas.width*4*4]; // original_copy
+                pixel4g = data[i-3-canvas.width*4*4]; // original_copy
+                pixel4b = data[i-2-canvas.width*4*4]; // original_copy
+            }
+            // Se estiver na quarta coluna da imagem, pixels 1 serão zerados:
+            else {
+                pixel1r = data[i-4-4-4-4-canvas.width*4*4]; // original_copy
+                pixel1g = data[i-3-4-4-4-canvas.width*4*4]; // original_copy
+                pixel1b = data[i-2-4-4-4-canvas.width*4*4]; // original_copy
+                pixel2r = data[i-4-4-4-canvas.width*4*4]; // original_copy
+                pixel2g = data[i-3-4-4-canvas.width*4*4]; // original_copy
+                pixel2b = data[i-2-4-4-canvas.width*4*4]; // original_copy
+                pixel3r = data[i-4-4-canvas.width*4*4]; // original_copy
+                pixel3g = data[i-3-4-canvas.width*4*4]; // original_copy
+                pixel3b = data[i-2-4-canvas.width*4*4]; // original_copy
+                pixel4r = data[i-4-canvas.width*4*4]; // original_copy
+                pixel4g = data[i-3-canvas.width*4*4]; // original_copy
+                pixel4b = data[i-2-canvas.width*4*4]; // original_copy
+            }
+            // Pixel 5:
+            pixel5r = data[i-canvas.width*4*4]; // original_copy
+            pixel5g = data[i+1-canvas.width*4*4]; // original_copy
+            pixel5b = data[i+2-canvas.width*4*4]; // original_copy
+            // Pixels 6, 7, 8 e 9:
+            // Se estiver na ultima coluna da imagem, pixels 6, 7, 8 e 9 serão zerados:
+            if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
+                pixel6r = pixel6g = pixel6b = pixel7r = pixel7g = pixel7b = pixel8r = pixel8g = pixel8b = pixel9r = pixel9g = pixel9b = 0;
+            }
+            // Se estiver na penúltima coluna da imagem, pixels 7, 8 e 9 serão zerados:
+            else if (i%(canvas.width*4)===(canvas.width*4)-5) {
+                pixel7r = pixel7g = pixel7b = pixel8r = pixel8g = pixel8b = pixel9r = pixel9g = pixel9b = 0;
+                pixel6r = data[i+4-canvas.width*4*4]; // original_copy
+                pixel6g = data[i+5-canvas.width*4*4]; // original_copy
+                pixel6b = data[i+6-canvas.width*4*4]; // original_copy
+            }
+            // Se estiver na antepenúltima coluna da imagem, pixels 8 e 9 serão zerados:
+            else if (i%(canvas.width*4)===(canvas.width*4)-9) {
+                pixel8r = pixel8g = pixel8b = pixel9r = pixel9g = pixel9b = 0;
+                pixel6r = data[i+4-canvas.width*4*4]; // original_copy
+                pixel6g = data[i+5-canvas.width*4*4]; // original_copy
+                pixel6b = data[i+6-canvas.width*4*4]; // original_copy
+                pixel7r = data[i+4+4-canvas.width*4*4]; // original_copy
+                pixel7g = data[i+5+4-canvas.width*4*4]; // original_copy
+                pixel7b = data[i+6+4-canvas.width*4*4]; // original_copy
+            }
+            // Se estiver na pré-antepenúltima coluna da imagem, pixels 9 serão zerados:
+            else if (i%(canvas.width*4)===(canvas.width*4)-13) {
+                pixel9r = pixel9g = pixel9b = 0;
+                pixel6r = data[i+4-canvas.width*4*4]; // original_copy
+                pixel6g = data[i+5-canvas.width*4*4]; // original_copy
+                pixel6b = data[i+6-canvas.width*4*4]; // original_copy
+                pixel7r = data[i+4+4-canvas.width*4*4]; // original_copy
+                pixel7g = data[i+5+4-canvas.width*4*4]; // original_copy
+                pixel7b = data[i+6+4-canvas.width*4*4]; // original_copy
+                pixel8r = data[i+4+4+4-canvas.width*4*4]; // original_copy
+                pixel8g = data[i+5+4+4-canvas.width*4*4]; // original_copy
+                pixel8b = data[i+6+4+4-canvas.width*4*4]; // original_copy
+            }
+            // Se estiver em qualquer outra coluna:
+            else {
+                pixel6r = data[i+4-canvas.width*4*4]; // original_copy
+                pixel6g = data[i+5-canvas.width*4*4]; // original_copy
+                pixel6b = data[i+6-canvas.width*4*4]; // original_copy
+                pixel7r = data[i+4+4-canvas.width*4*4]; // original_copy
+                pixel7g = data[i+5+4-canvas.width*4*4]; // original_copy
+                pixel7b = data[i+6+4-canvas.width*4*4]; // original_copy
+                pixel8r = data[i+4+4+4-canvas.width*4*4]; // original_copy
+                pixel8g = data[i+5+4+4-canvas.width*4*4]; // original_copy
+                pixel8b = data[i+6+4+4-canvas.width*4*4]; // original_copy
+                pixel9r = data[i+4+4+4+4-canvas.width*4*4]; // original_copy
+                pixel9g = data[i+5+4+4+4-canvas.width*4*4]; // original_copy
+                pixel9b = data[i+6+4+4+4-canvas.width*4*4]; // original_copy
+            }
+        }
+
+        // TRATANDO OS PIXELS 10 A 18:
+        // Se estiver na primeira, segunda ou terceira linha da imagem, pixels 10 a 18 serão zerados:
         if (i<canvas.width*4*3) {
-            pixel1r = pixel1g = pixel1b = pixel2r = pixel2g = pixel2b = pixel3r = pixel3g = pixel3b = pixel4r = pixel4g = pixel4b = pixel5r = pixel5g = pixel5b = pixel6r = pixel6g = pixel6b = pixel7r = pixel7g = pixel7b = 0;
+            pixel10r = pixel10g = pixel10b = pixel11r = pixel11g = pixel11b = pixel12r = pixel12g = pixel12b = pixel13r = pixel13g = pixel13b = pixel14r = pixel14g = pixel14b = pixel15r = pixel15g = pixel15b = pixel16r = pixel16g = pixel16b = pixel17r = pixel17g = pixel17b = pixel18r = pixel18g = pixel18b = 0;
         }
         // Se estiver em qualquer linha da imagem menos a primeira, segunda e terceira:
         else {
-            // Pixels 1, 2 e 3:
-            // Se estiver na primeira coluna da imagem, pixels 1, 2 e 3 serão zerados:
+            // Pixels 10, 11, 12 e 13:
+            // Se estiver na primeira coluna da imagem, pixels 10, 11, 12 e 13 serão zerados:
             if (i%(canvas.width*4)===0) {
-                pixel1r = pixel1g = pixel1b = pixel2r = pixel2g = pixel2b = pixel3r = pixel3g = pixel3b = 0;
+                pixel10r = pixel10g = pixel10b = pixel11r = pixel11g = pixel11b = pixel12r = pixel12g = pixel12b = pixel13r = pixel13g = pixel13b = 0;
             }
-            // Se estiver na segunda coluna da imagem, pixels 1 e 2 serão zerados:
+            // Se estiver na segunda coluna da imagem, pixels 10, 11 e 12 serão zerados:
             else if (i%(canvas.width*4)===4) {
-                pixel1r = pixel1g = pixel1b = pixel2r = pixel2g = pixel2b = 0;
-                pixel3r = data[i-4-canvas.width*4*3]; // original_copy
-                pixel3g = data[i-3-canvas.width*4*3]; // original_copy
-                pixel3b = data[i-2-canvas.width*4*3]; // original_copy
+                pixel10r = pixel10g = pixel10b = pixel11r = pixel11g = pixel11b = pixel12r = pixel12g = pixel12b = 0;
+                pixel13r = data[i-4-canvas.width*4*3]; // original_copy
+                pixel13g = data[i-3-canvas.width*4*3]; // original_copy
+                pixel13b = data[i-2-canvas.width*4*3]; // original_copy
             }
-            // Se estiver na terceira coluna da imagem, pixels 1 serão zerados:
+            // Se estiver na terceira coluna da imagem, pixels 10 e 11 serão zerados:
             else if (i%(canvas.width*4)===8) {
-                pixel1r = pixel1g = pixel1b = 0;
-                pixel2r = data[i-4-4-canvas.width*4*3]; // original_copy
-                pixel2g = data[i-3-4-canvas.width*4*3]; // original_copy
-                pixel2b = data[i-2-4-canvas.width*4*3]; // original_copy
-                pixel3r = data[i-4-canvas.width*4*3]; // original_copy
-                pixel3g = data[i-3-canvas.width*4*3]; // original_copy
-                pixel3b = data[i-2-canvas.width*4*3]; // original_copy
+                pixel10r = pixel10g = pixel10b = pixel11r = pixel11g = pixel11b = 0;
+                pixel12r = data[i-4-4-canvas.width*4*3]; // original_copy
+                pixel12g = data[i-3-4-canvas.width*4*3]; // original_copy
+                pixel12b = data[i-2-4-canvas.width*4*3]; // original_copy
+                pixel13r = data[i-4-canvas.width*4*3]; // original_copy
+                pixel13g = data[i-3-canvas.width*4*3]; // original_copy
+                pixel13b = data[i-2-canvas.width*4*3]; // original_copy
+            }
+            // Se estiver na quarta coluna da imagem, pixels 10 serão zerados:
+            else if (i%(canvas.width*4)===12) {
+                pixel10r = pixel10g = pixel10b = 0;
+                pixel11r = data[i-4-4-4-canvas.width*4*3]; // original_copy
+                pixel11g = data[i-3-4-4-canvas.width*4*3]; // original_copy
+                pixel11b = data[i-2-4-4-canvas.width*4*3]; // original_copy
+                pixel12r = data[i-4-4-canvas.width*4*3]; // original_copy
+                pixel12g = data[i-3-4-canvas.width*4*3]; // original_copy
+                pixel12b = data[i-2-4-canvas.width*4*3]; // original_copy
+                pixel13r = data[i-4-canvas.width*4*3]; // original_copy
+                pixel13g = data[i-3-canvas.width*4*3]; // original_copy
+                pixel13b = data[i-2-canvas.width*4*3]; // original_copy
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel1r = data[i-4-4-4-canvas.width*4*3]; // original_copy
-                pixel1g = data[i-3-4-4-canvas.width*4*3]; // original_copy
-                pixel1b = data[i-2-4-4-canvas.width*4*3]; // original_copy
-                pixel2r = data[i-4-4-canvas.width*4*3]; // original_copy
-                pixel2g = data[i-3-4-canvas.width*4*3]; // original_copy
-                pixel2b = data[i-2-4-canvas.width*4*3]; // original_copy
-                pixel3r = data[i-4-canvas.width*4*3]; // original_copy
-                pixel3g = data[i-3-canvas.width*4*3]; // original_copy
-                pixel3b = data[i-2-canvas.width*4*3]; // original_copy
+                pixel10r = data[i-4-4-4-4-canvas.width*4*3]; // original_copy
+                pixel10g = data[i-3-4-4-4-canvas.width*4*3]; // original_copy
+                pixel10b = data[i-2-4-4-4-canvas.width*4*3]; // original_copy
+                pixel11r = data[i-4-4-4-canvas.width*4*3]; // original_copy
+                pixel11g = data[i-3-4-4-canvas.width*4*3]; // original_copy
+                pixel11b = data[i-2-4-4-canvas.width*4*3]; // original_copy
+                pixel12r = data[i-4-4-canvas.width*4*3]; // original_copy
+                pixel12g = data[i-3-4-canvas.width*4*3]; // original_copy
+                pixel12b = data[i-2-4-canvas.width*4*3]; // original_copy
+                pixel13r = data[i-4-canvas.width*4*3]; // original_copy
+                pixel13g = data[i-3-canvas.width*4*3]; // original_copy
+                pixel13b = data[i-2-canvas.width*4*3]; // original_copy
             }
-            // Pixel 4:
-            pixel4r = data[i-canvas.width*4*3]; // original_copy
-            pixel4g = data[i+1-canvas.width*4*3]; // original_copy
-            pixel4b = data[i+2-canvas.width*4*3]; // original_copy
-            // Pixels 5, 6 e 7:
-            // Se estiver na ultima coluna da imagem, pixels 5, 6 e 7 serão zerados:
+            // Pixel 14:
+            pixel14r = data[i-canvas.width*4*3]; // original_copy
+            pixel14g = data[i+1-canvas.width*4*3]; // original_copy
+            pixel14b = data[i+2-canvas.width*4*3]; // original_copy
+            // Pixels 15, 16, 17 e 18:
+            // Se estiver na ultima coluna da imagem, pixels 15, 16, 17 e 18 serão zerados:
             if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
-                pixel5r = pixel5g = pixel5b = pixel6r = pixel6g = pixel6b = pixel7r = pixel7g = pixel7b = 0;
+                pixel15r = pixel15g = pixel15b = pixel16r = pixel16g = pixel16b = pixel17r = pixel17g = pixel17b = pixel18r = pixel18g = pixel18b = 0;
             }
-            // Se estiver na penúltima coluna da imagem, pixels 6 e 7 serão zerados:
+            // Se estiver na penúltima coluna da imagem, pixels 16, 17 e 18 serão zerados:
             else if (i%(canvas.width*4)===(canvas.width*4)-5) {
-                pixel6r = pixel6g = pixel6b = pixel7r = pixel7g = pixel7b = 0;
-                pixel5r = data[i+4-canvas.width*4*3]; // original_copy
-                pixel5g = data[i+5-canvas.width*4*3]; // original_copy
-                pixel5b = data[i+6-canvas.width*4*3]; // original_copy
+                pixel16r = pixel16g = pixel16b = pixel17r = pixel17g = pixel17b = pixel18r = pixel18g = pixel18b = 0;
+                pixel15r = data[i+4-canvas.width*4*3]; // original_copy
+                pixel15g = data[i+5-canvas.width*4*3]; // original_copy
+                pixel15b = data[i+6-canvas.width*4*3]; // original_copy
             }
-            // Se estiver na antepenúltima coluna da imagem, pixels 7 serão zerados:
+            // Se estiver na antepenúltima coluna da imagem, pixels 17 e 18 serão zerados:
             else if (i%(canvas.width*4)===(canvas.width*4)-9) {
-                pixel7r = pixel7g = pixel7b = 0;
-                pixel5r = data[i+4-canvas.width*4*3]; // original_copy
-                pixel5g = data[i+5-canvas.width*4*3]; // original_copy
-                pixel5b = data[i+6-canvas.width*4*3]; // original_copy
-                pixel6r = data[i+4+4-canvas.width*4*3]; // original_copy
-                pixel6g = data[i+5+4-canvas.width*4*3]; // original_copy
-                pixel6b = data[i+6+4-canvas.width*4*3]; // original_copy
+                pixel17r = pixel17g = pixel17b = pixel18r = pixel18g = pixel18b = 0;
+                pixel15r = data[i+4-canvas.width*4*3]; // original_copy
+                pixel15g = data[i+5-canvas.width*4*3]; // original_copy
+                pixel15b = data[i+6-canvas.width*4*3]; // original_copy
+                pixel16r = data[i+4+4-canvas.width*4*3]; // original_copy
+                pixel16g = data[i+5+4-canvas.width*4*3]; // original_copy
+                pixel16b = data[i+6+4-canvas.width*4*3]; // original_copy
+            }
+            // Se estiver na antepenúltima coluna da imagem, pixels 18 serão zerados:
+            else if (i%(canvas.width*4)===(canvas.width*4)-13) {
+                pixel18r = pixel18g = pixel18b = 0;
+                pixel15r = data[i+4-canvas.width*4*3]; // original_copy
+                pixel15g = data[i+5-canvas.width*4*3]; // original_copy
+                pixel15b = data[i+6-canvas.width*4*3]; // original_copy
+                pixel16r = data[i+4+4-canvas.width*4*3]; // original_copy
+                pixel16g = data[i+5+4-canvas.width*4*3]; // original_copy
+                pixel16b = data[i+6+4-canvas.width*4*3]; // original_copy
+                pixel17r = data[i+4+4+4-canvas.width*4*3]; // original_copy
+                pixel17g = data[i+5+4+4-canvas.width*4*3]; // original_copy
+                pixel17b = data[i+6+4+4-canvas.width*4*3]; // original_copy
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel5r = data[i+4-canvas.width*4*3]; // original_copy
-                pixel5g = data[i+5-canvas.width*4*3]; // original_copy
-                pixel5b = data[i+6-canvas.width*4*3]; // original_copy
-                pixel6r = data[i+4+4-canvas.width*4*3]; // original_copy
-                pixel6g = data[i+5+4-canvas.width*4*3]; // original_copy
-                pixel6b = data[i+6+4-canvas.width*4*3]; // original_copy
-                pixel7r = data[i+4+4+4-canvas.width*4*2]; // original_copy
-                pixel7g = data[i+5+4+4-canvas.width*4*2]; // original_copy
-                pixel7b = data[i+6+4+4-canvas.width*4*2]; // original_copy
+                pixel15r = data[i+4-canvas.width*4*3]; // original_copy
+                pixel15g = data[i+5-canvas.width*4*3]; // original_copy
+                pixel15b = data[i+6-canvas.width*4*3]; // original_copy
+                pixel16r = data[i+4+4-canvas.width*4*3]; // original_copy
+                pixel16g = data[i+5+4-canvas.width*4*3]; // original_copy
+                pixel16b = data[i+6+4-canvas.width*4*3]; // original_copy
+                pixel17r = data[i+4+4+4-canvas.width*4*3]; // original_copy
+                pixel17g = data[i+5+4+4-canvas.width*4*3]; // original_copy
+                pixel17b = data[i+6+4+4-canvas.width*4*3]; // original_copy
+                pixel18r = data[i+4+4+4+4-canvas.width*4*3]; // original_copy
+                pixel18g = data[i+5+4+4+4-canvas.width*4*3]; // original_copy
+                pixel18b = data[i+6+4+4+4-canvas.width*4*3]; // original_copy
             }
         }
 
-        // TRATANDO OS PIXELS 8 A 14:
-        // Se estiver na primeira ou segunda linha da imagem, pixels 8 a 14 serão zerados:
-        if (i<canvas.width*4*2) {
-            pixel8r = pixel8g = pixel8b = pixel9r = pixel9g = pixel9b = pixel10r = pixel10g = pixel10b = pixel11r = pixel11g = pixel11b = pixel12r = pixel12g = pixel12b = pixel13r = pixel13g = pixel13b = pixel14r = pixel14g = pixel14b = 0;
-        }
-        // Se estiver em qualquer linha da imagem menos a primeira e segunda:
-        else {
-            // Pixels 8, 9 e 10:
-            // Se estiver na primeira coluna da imagem, pixels 8, 9 e 10 serão zerados:
-            if (i%(canvas.width*4)===0) {
-                pixel8r = pixel8g = pixel8b = pixel9r = pixel9g = pixel9b = pixel10r = pixel10g = pixel10b = 0;
-            }
-            // Se estiver na segunda coluna da imagem, pixels 8 e 9 serão zerados:
-            else if (i%(canvas.width*4)===4) {
-                pixel8r = pixel8g = pixel8b = pixel9r = pixel9g = pixel9b = 0;
-                pixel10r = data[i-4-canvas.width*4*2]; // original_copy
-                pixel10g = data[i-3-canvas.width*4*2]; // original_copy
-                pixel10b = data[i-2-canvas.width*4*2]; // original_copy
-            }
-            // Se estiver na segunda coluna da imagem, pixels 8 serão zerados:
-            else if (i%(canvas.width*4)===8) {
-                pixel8r = pixel8g = pixel8b = 0;
-                pixel9r = data[i-4-4-canvas.width*4*2]; // original_copy
-                pixel9g = data[i-3-4-canvas.width*4*2]; // original_copy
-                pixel9b = data[i-2-4-canvas.width*4*2]; // original_copy
-                pixel10r = data[i-4-canvas.width*4*2]; // original_copy
-                pixel10g = data[i-3-canvas.width*4*2]; // original_copy
-                pixel10b = data[i-2-canvas.width*4*2]; // original_copy
-            }
-            // Se estiver em qualquer outra coluna:
-            else {
-                pixel8r = data[i-4-4-4-canvas.width*4*2]; // original_copy
-                pixel8g = data[i-3-4-4-canvas.width*4*2]; // original_copy
-                pixel8b = data[i-2-4-4-canvas.width*4*2]; // original_copy
-                pixel9r = data[i-4-4-canvas.width*4*2]; // original_copy
-                pixel9g = data[i-3-4-canvas.width*4*2]; // original_copy
-                pixel9b = data[i-2-4-canvas.width*4*2]; // original_copy
-                pixel10r = data[i-4-canvas.width*4*2]; // original_copy
-                pixel10g = data[i-3-canvas.width*4*2]; // original_copy
-                pixel10b = data[i-2-canvas.width*4*2]; // original_copy
-            }
-            // Pixel 11:
-            pixel11r = data[i-canvas.width*4*2]; // original_copy
-            pixel11g = data[i+1-canvas.width*4*2]; // original_copy
-            pixel11b = data[i+2-canvas.width*4*2]; // original_copy
-            // Pixels 12, 13 e 14:
-            // Se estiver na ultima coluna da imagem, pixels 12, 13 e 14 serão zerados:
-            if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
-                pixel12r = pixel12g = pixel12b = pixel13r = pixel13g = pixel13b = pixel14r = pixel14g = pixel14b = 0;
-            }
-            // Se estiver na penúltima coluna da imagem, pixels 13 e 14 serão zerados:
-            else if (i%(canvas.width*4)===(canvas.width*4)-5) {
-                pixel13r = pixel13g = pixel13b = pixel14r = pixel14g = pixel14b = 0;
-                pixel12r = data[i+4-canvas.width*4*2]; // original_copy
-                pixel12g = data[i+5-canvas.width*4*2]; // original_copy
-                pixel12b = data[i+6-canvas.width*4*2]; // original_copy
-            }
-            // Se estiver na antepenúltima coluna da imagem, pixels 14 serão zerados:
-            else if (i%(canvas.width*4)===(canvas.width*4)-7) {
-                pixel14r = pixel14g = pixel14b = 0;
-                pixel12r = data[i+4-canvas.width*4*2]; // original_copy
-                pixel12g = data[i+5-canvas.width*4*2]; // original_copy
-                pixel12b = data[i+6-canvas.width*4*2]; // original_copy
-                pixel13r = data[i+4+4-canvas.width*4*2]; // original_copy
-                pixel13g = data[i+5+4-canvas.width*4*2]; // original_copy
-                pixel13b = data[i+6+4-canvas.width*4*2]; // original_copy
-            }
-            // Se estiver em qualquer outra coluna:
-            else {
-                pixel12r = data[i+4-canvas.width*4*2]; // original_copy
-                pixel12g = data[i+5-canvas.width*4*2]; // original_copy
-                pixel12b = data[i+6-canvas.width*4*2]; // original_copy
-                pixel13r = data[i+4+4-canvas.width*4*2]; // original_copy
-                pixel13g = data[i+5+4-canvas.width*4*2]; // original_copy
-                pixel13b = data[i+6+4-canvas.width*4*2]; // original_copy
-                pixel14r = data[i+4+4+4-canvas.width*4*2]; // original_copy
-                pixel14g = data[i+5+4+4-canvas.width*4*2]; // original_copy
-                pixel14b = data[i+6+4+4-canvas.width*4*2]; // original_copy
-            }
-        }
-
-        // TRATANDO OS PIXELS 15 A 21:
+        // _______________________________________________________________________CONTINUAR DAQUI________________________________________________________________________________________________________________________________________________________________________________
+        // TRATANDO OS PIXELS 19 A 27:
         // Se estiver na primeira linha da imagem, pixels 15 a 21 serão zerados:
         if (i<canvas.width*4) {
             pixel15r = pixel15g = pixel15b = pixel16r = pixel16g = pixel16b = pixel17r = pixel17g = pixel17b = pixel18r = pixel18g = pixel18b = pixel19r = pixel19g = pixel19b = pixel20r = pixel20g = pixel20b = pixel21r = pixel21g = pixel21b = 0;
