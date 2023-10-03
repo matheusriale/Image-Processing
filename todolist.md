@@ -1,3 +1,5 @@
+### Ajeitar Interface
+
 
 ### Ajustes
 - 3 histogramas, um para cada canal (r,g e b)
@@ -8,13 +10,9 @@
 
 - Limiarização por canais e geral.
 
-- Convoluções LaPlace estão gerando bordas na imagem
-
 - Verificar Original copy nas convoluções.
 
 ### Implementações por fazer
-
-- Esteganografia
 
 - Aplicação de filtro genérico por convolução;
   
@@ -33,3 +31,5 @@ Deve ser possível o usuário escolher o tamanho do filtro. Só são necessário
 - Atenção: você deve implementar a sua própria transformada discreta de fourier (opcionalmente implementar a transformada rápida, ganhando pontos extras). Caso você implemente apenas a transformada discreta da maneira “ingênua”, deve disponibilizar também a possibilidade de cálculo da transformada rápida usando a função implementada em alguma biblioteca para a linguagem escolhida, de tal forma que fique viável trabalhar com o processamento no domínio da frequência de imagens grandes em seu programa.
 
 - criar ferramenta para transformação entre sistemas de cores: RGB<->HSV; Algoritmos de escala de cinza: média aritmética simples e média ponderada; Negativo.
+
+-Chroma-Key (deve ser possível escolher a ‘distância’ da cor verde e a imagem que substituirá); Histograma (R, G, B e I); Equalização de Histograma em imagens coloridas (HSI); Suavização e Aguçamento em imagens coloridas; Ajuste de Matiz, Saturação e Brilho; Ajuste de Canal (C/R, M/G, Y/B); Sépia (“escala de cinza amarelada”).
