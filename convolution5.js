@@ -2,10 +2,11 @@
 function convolution5x5(kernel, mediana) {
     let copypixels = pixels; //copiar valores, novo array
     let data = copypixels.data;
+    let data2 = [...pixels.data];
     /*
     pixel1   pixel2   pixel3   pixel4   pixel5
     pixel6   pixel7   pixel8   pixel9   pixel10
-    pixel11  pixel12  pixel13  pixel14  pixel15
+    pixel11  pixel12  PIXEL13  pixel14  pixel15
     pixel16  pixel17  pixel18  pixel19  pixel20
     pixel21  pixel22  pixel23  pixel24  pixel25
     */
@@ -38,23 +39,23 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na segunda coluna da imagem, pixels 1 serão zerados:
             else if (i%(canvas.width*4)===4) {
                 pixel1r = pixel1g = pixel1b = 0;
-                pixel2r = data[i-4-canvas.width*4*2]; // original_copy
-                pixel2g = data[i-3-canvas.width*4*2]; // original_copy
-                pixel2b = data[i-2-canvas.width*4*2]; // original_copy
+                pixel2r = data2[i-4-canvas.width*4*2];
+                pixel2g = data2[i-3-canvas.width*4*2];
+                pixel2b = data2[i-2-canvas.width*4*2];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel1r = data[i-4-4-canvas.width*4*2]; // original_copy
-                pixel1g = data[i-3-4-canvas.width*4*2]; // original_copy
-                pixel1b = data[i-2-4-canvas.width*4*2]; // original_copy
-                pixel2r = data[i-4-canvas.width*4*2]; // original_copy
-                pixel2g = data[i-3-canvas.width*4*2]; // original_copy
-                pixel2b = data[i-2-canvas.width*4*2]; // original_copy
+                pixel1r = data2[i-4-4-canvas.width*4*2];
+                pixel1g = data2[i-3-4-canvas.width*4*2];
+                pixel1b = data2[i-2-4-canvas.width*4*2];
+                pixel2r = data2[i-4-canvas.width*4*2];
+                pixel2g = data2[i-3-canvas.width*4*2];
+                pixel2b = data2[i-2-canvas.width*4*2];
             }
             // Pixel 3:
-            pixel3r = data[i-canvas.width*4*2]; // original_copy
-            pixel3g = data[i+1-canvas.width*4*2]; // original_copy
-            pixel3b = data[i+2-canvas.width*4*2]; // original_copy
+            pixel3r = data2[i-canvas.width*4*2];
+            pixel3g = data2[i+1-canvas.width*4*2];
+            pixel3b = data2[i+2-canvas.width*4*2];
             // Pixels 4 e 5:
             // Se estiver na ultima coluna da imagem, pixels 4 e 5 serão zerados:
             if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
@@ -63,18 +64,18 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na penúltima coluna da imagem, pixels 5 serão zerados:
             else if (i%(canvas.width*4)===(canvas.width*4)-5) {
                 pixel5r = pixel5g = pixel5b = 0;
-                pixel4r = data[i+4-canvas.width*4*2]; // original_copy
-                pixel4g = data[i+5-canvas.width*4*2]; // original_copy
-                pixel4b = data[i+6-canvas.width*4*2]; // original_copy
+                pixel4r = data2[i+4-canvas.width*4*2];
+                pixel4g = data2[i+5-canvas.width*4*2];
+                pixel4b = data2[i+6-canvas.width*4*2];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel4r = data[i+4-canvas.width*4*2]; // original_copy
-                pixel4g = data[i+5-canvas.width*4*2]; // original_copy
-                pixel4b = data[i+6-canvas.width*4*2]; // original_copy
-                pixel5r = data[i+4+4-canvas.width*4*2]; // original_copy
-                pixel5g = data[i+5+4-canvas.width*4*2]; // original_copy
-                pixel5b = data[i+6+4-canvas.width*4*2]; // original_copy
+                pixel4r = data2[i+4-canvas.width*4*2];
+                pixel4g = data2[i+5-canvas.width*4*2];
+                pixel4b = data2[i+6-canvas.width*4*2];
+                pixel5r = data2[i+4+4-canvas.width*4*2];
+                pixel5g = data2[i+5+4-canvas.width*4*2];
+                pixel5b = data2[i+6+4-canvas.width*4*2];
             }
         }
 
@@ -93,23 +94,23 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na segunda coluna da imagem, pixels 6 serão zerados:
             else if (i%(canvas.width*4)===4) {
                 pixel6r = pixel6g = pixel6b = 0;
-                pixel7r = data[i-4-canvas.width*4]; // original_copy
-                pixel7g = data[i-3-canvas.width*4]; // original_copy
-                pixel7b = data[i-2-canvas.width*4]; // original_copy
+                pixel7r = data2[i-4-canvas.width*4];
+                pixel7g = data2[i-3-canvas.width*4];
+                pixel7b = data2[i-2-canvas.width*4];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel6r = data[i-4-4-canvas.width*4]; // original_copy
-                pixel6g = data[i-3-4-canvas.width*4]; // original_copy
-                pixel6b = data[i-2-4-canvas.width*4]; // original_copy
-                pixel7r = data[i-4-canvas.width*4]; // original_copy
-                pixel7g = data[i-3-canvas.width*4]; // original_copy
-                pixel7b = data[i-2-canvas.width*4]; // original_copy
+                pixel6r = data2[i-4-4-canvas.width*4];
+                pixel6g = data2[i-3-4-canvas.width*4];
+                pixel6b = data2[i-2-4-canvas.width*4];
+                pixel7r = data2[i-4-canvas.width*4];
+                pixel7g = data2[i-3-canvas.width*4];
+                pixel7b = data2[i-2-canvas.width*4];
             }
             // Pixel 8:
-            pixel8r = data[i-canvas.width*4]; // original_copy
-            pixel8g = data[i+1-canvas.width*4]; // original_copy
-            pixel8b = data[i+2-canvas.width*4]; // original_copy
+            pixel8r = data2[i-canvas.width*4];
+            pixel8g = data2[i+1-canvas.width*4];
+            pixel8b = data2[i+2-canvas.width*4];
             // Pixels 9 e 10:
             // Se estiver na ultima coluna da imagem, pixels 9 e 10 serão zerados:
             if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
@@ -118,18 +119,18 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na penúltima coluna da imagem, pixels 10 serão zerados:
             else if (i%(canvas.width*4)===(canvas.width*4)-5) {
                 pixel10r = pixel10g = pixel10b = 0;
-                pixel9r = data[i+4-canvas.width*4]; // original_copy
-                pixel9g = data[i+5-canvas.width*4]; // original_copy
-                pixel9b = data[i+6-canvas.width*4]; // original_copy
+                pixel9r = data2[i+4-canvas.width*4];
+                pixel9g = data2[i+5-canvas.width*4];
+                pixel9b = data2[i+6-canvas.width*4];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel9r = data[i+4-canvas.width*4]; // original_copy
-                pixel9g = data[i+5-canvas.width*4]; // original_copy
-                pixel9b = data[i+6-canvas.width*4]; // original_copy
-                pixel10r = data[i+4+4-canvas.width*4]; // original_copy
-                pixel10g = data[i+5+4-canvas.width*4]; // original_copy
-                pixel10b = data[i+6+4-canvas.width*4]; // original_copy
+                pixel9r = data2[i+4-canvas.width*4];
+                pixel9g = data2[i+5-canvas.width*4];
+                pixel9b = data2[i+6-canvas.width*4];
+                pixel10r = data2[i+4+4-canvas.width*4];
+                pixel10g = data2[i+5+4-canvas.width*4];
+                pixel10b = data2[i+6+4-canvas.width*4];
             }
         }
 
@@ -142,23 +143,23 @@ function convolution5x5(kernel, mediana) {
         // Se estiver na segunda coluna da imagem, pixels 11 serão zerados:
         else if (i%(canvas.width*4)===4) {
             pixel11r = pixel11g = pixel11b = 0;
-            pixel12r = data[i-4]; // original_copy
-            pixel12g = data[i-3]; // original_copy
-            pixel12b = data[i-2]; // original_copy
+            pixel12r = data2[i-4];
+            pixel12g = data2[i-3];
+            pixel12b = data2[i-2];
         }
         // Se estiver em qualquer outra coluna:
         else {
-            pixel11r = data[i-4-4]; // original_copy
-            pixel11g = data[i-3-4]; // original_copy
-            pixel11b = data[i-2-4]; // original_copy
-            pixel12r = data[i-4]; // original_copy
-            pixel12g = data[i-3]; // original_copy
-            pixel12b = data[i-2]; // original_copy
+            pixel11r = data2[i-4-4];
+            pixel11g = data2[i-3-4];
+            pixel11b = data2[i-2-4];
+            pixel12r = data2[i-4];
+            pixel12g = data2[i-3];
+            pixel12b = data2[i-2];
         }
         // Pixels 13:
-        pixel13r = data[i]; // original_copy
-        pixel13g = data[i+1]; // original_copy
-        pixel13b = data[i+2]; // original_copy
+        pixel13r = data2[i];
+        pixel13g = data2[i+1];
+        pixel13b = data2[i+2];
         // Pixels 14 e 15:
         // Se estiver na ultima coluna da imagem, pixels 14 e 15 serão zerados:
         if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
@@ -167,18 +168,18 @@ function convolution5x5(kernel, mediana) {
         // Se estiver na penúltima coluna da imagem, pixels 15 serão zerados:
         else if (i%(canvas.width*4)===(canvas.width*4)-5) {
             pixel15r = pixel15g = pixel15b = 0;
-            pixel14r = data[i+4]; // original_copy
-            pixel14g = data[i+5]; // original_copy
-            pixel14b = data[i+6]; // original_copy
+            pixel14r = data2[i+4];
+            pixel14g = data2[i+5];
+            pixel14b = data2[i+6];
         }
         // Se estiver em qualquer outra coluna:
         else {
-            pixel14r = data[i+4]; // original_copy
-            pixel14g = data[i+5]; // original_copy
-            pixel14b = data[i+6]; // original_copy
-            pixel15r = data[i+4+4]; // original_copy
-            pixel15g = data[i+5+4]; // original_copy
-            pixel15b = data[i+6+4]; // original_copy
+            pixel14r = data2[i+4];
+            pixel14g = data2[i+5];
+            pixel14b = data2[i+6];
+            pixel15r = data2[i+4+4];
+            pixel15g = data2[i+5+4];
+            pixel15b = data2[i+6+4];
         }
 
         // TRATANDO OS PIXELS 16 A 20:
@@ -196,23 +197,23 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na segunda coluna da imagem, pixels 16 serão zerados:
             else if (i%(canvas.width*4)===4) {
                 pixel16r = pixel16g = pixel16b = 0;
-                pixel17r = data[i-4+canvas.width*4]; // original_copy
-                pixel17g = data[i-3+canvas.width*4]; // original_copy
-                pixel17b = data[i-2+canvas.width*4]; // original_copy
+                pixel17r = data2[i-4+canvas.width*4];
+                pixel17g = data2[i-3+canvas.width*4];
+                pixel17b = data2[i-2+canvas.width*4];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel6r = data[i-4-4+canvas.width*4]; // original_copy
-                pixel6g = data[i-3-4+canvas.width*4]; // original_copy
-                pixel6b = data[i-2-4+canvas.width*4]; // original_copy
-                pixel7r = data[i-4+canvas.width*4]; // original_copy
-                pixel7g = data[i-3+canvas.width*4]; // original_copy
-                pixel7b = data[i-2+canvas.width*4]; // original_copy
+                pixel6r = data2[i-4-4+canvas.width*4];
+                pixel6g = data2[i-3-4+canvas.width*4];
+                pixel6b = data2[i-2-4+canvas.width*4];
+                pixel7r = data2[i-4+canvas.width*4];
+                pixel7g = data2[i-3+canvas.width*4];
+                pixel7b = data2[i-2+canvas.width*4];
             }
             // Pixel 18:
-            pixel18r = data[i+canvas.width*4]; // original_copy
-            pixel18g = data[i+1+canvas.width*4]; // original_copy
-            pixel18b = data[i+2+canvas.width*4]; // original_copy
+            pixel18r = data2[i+canvas.width*4];
+            pixel18g = data2[i+1+canvas.width*4];
+            pixel18b = data2[i+2+canvas.width*4];
             // Pixels 19 e 20:
             // Se estiver na última coluna da imagem, pixels 19 e 20 serão zerados:
             if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
@@ -221,18 +222,18 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na penúltima coluna da imagem, pixels 20 serão zerados:
             else if ((i+3)%(canvas.width*4)===(canvas.width*4)-5) {
                 pixel20r = pixel20g = pixel20b = 0;
-                pixel19r = data[i+4+canvas.width*4]; // original_copy
-                pixel19g = data[i+5+canvas.width*4]; // original_copy
-                pixel19b = data[i+6+canvas.width*4]; // original_copy
+                pixel19r = data2[i+4+canvas.width*4];
+                pixel19g = data2[i+5+canvas.width*4];
+                pixel19b = data2[i+6+canvas.width*4];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel19r = data[i+4+canvas.width*4]; // original_copy
-                pixel19g = data[i+5+canvas.width*4]; // original_copy
-                pixel19b = data[i+6+canvas.width*4]; // original_copy
-                pixel20r = data[i+4+4+canvas.width*4]; // original_copy
-                pixel20g = data[i+5+4+canvas.width*4]; // original_copy
-                pixel20b = data[i+6+4+canvas.width*4]; // original_copy
+                pixel19r = data2[i+4+canvas.width*4];
+                pixel19g = data2[i+5+canvas.width*4];
+                pixel19b = data2[i+6+canvas.width*4];
+                pixel20r = data2[i+4+4+canvas.width*4];
+                pixel20g = data2[i+5+4+canvas.width*4];
+                pixel20b = data2[i+6+4+canvas.width*4];
             }
         }
 
@@ -255,23 +256,23 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na segunda coluna da imagem, pixels 1 serão zerados:
             else if (i%(canvas.width*4)===4) {
                 pixel21r = pixel21g = pixel21b = 0;
-                pixel22r = data[i-4+canvas.width*4*2]; // original_copy
-                pixel22g = data[i-3+canvas.width*4*2]; // original_copy
-                pixel22b = data[i-2+canvas.width*4*2]; // original_copy
+                pixel22r = data2[i-4+canvas.width*4*2];
+                pixel22g = data2[i-3+canvas.width*4*2];
+                pixel22b = data2[i-2+canvas.width*4*2];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel21r = data[i-4-4+canvas.width*4*2]; // original_copy
-                pixel21g = data[i-3-4+canvas.width*4*2]; // original_copy
-                pixel21b = data[i-2-4+canvas.width*4*2]; // original_copy
-                pixel22r = data[i-4+canvas.width*4*2]; // original_copy
-                pixel22g = data[i-3+canvas.width*4*2]; // original_copy
-                pixel22b = data[i-2+canvas.width*4*2]; // original_copy
+                pixel21r = data2[i-4-4+canvas.width*4*2];
+                pixel21g = data2[i-3-4+canvas.width*4*2];
+                pixel21b = data2[i-2-4+canvas.width*4*2];
+                pixel22r = data2[i-4+canvas.width*4*2];
+                pixel22g = data2[i-3+canvas.width*4*2];
+                pixel22b = data2[i-2+canvas.width*4*2];
             }
             // Pixel 23:
-            pixel23r = data[i+canvas.width*4*2]; // original_copy
-            pixel23g = data[i+1+canvas.width*4*2]; // original_copy
-            pixel23b = data[i+2+canvas.width*4*2]; // original_copy
+            pixel23r = data2[i+canvas.width*4*2];
+            pixel23g = data2[i+1+canvas.width*4*2];
+            pixel23b = data2[i+2+canvas.width*4*2];
             // Pixels 24 e 25:
             // Se estiver na ultima coluna da imagem, pixels 24 e 25 serão zerados:
             if ((i+3)%(canvas.width*4)===(canvas.width*4)-1) {
@@ -280,18 +281,18 @@ function convolution5x5(kernel, mediana) {
             // Se estiver na penúltima coluna da imagem, pixels 25 serão zerados:
             else if (i%(canvas.width*4)===(canvas.width*4)-5) {
                 pixel25r = pixel25g = pixel25b = 0;
-                pixel24r = data[i+4+canvas.width*4*2]; // original_copy
-                pixel24g = data[i+5+canvas.width*4*2]; // original_copy
-                pixel24b = data[i+6+canvas.width*4*2]; // original_copy
+                pixel24r = data2[i+4+canvas.width*4*2];
+                pixel24g = data2[i+5+canvas.width*4*2];
+                pixel24b = data2[i+6+canvas.width*4*2];
             }
             // Se estiver em qualquer outra coluna:
             else {
-                pixel24r = data[i+4+canvas.width*4*2]; // original_copy
-                pixel24g = data[i+5+canvas.width*4*2]; // original_copy
-                pixel24b = data[i+6+canvas.width*4*2]; // original_copy
-                pixel25r = data[i+4+4+canvas.width*4*2]; // original_copy
-                pixel25g = data[i+5+4+canvas.width*4*2]; // original_copy
-                pixel25b = data[i+6+4+canvas.width*4*2]; // original_copy
+                pixel24r = data2[i+4+canvas.width*4*2];
+                pixel24g = data2[i+5+canvas.width*4*2];
+                pixel24b = data2[i+6+canvas.width*4*2];
+                pixel25r = data2[i+4+4+canvas.width*4*2];
+                pixel25g = data2[i+5+4+canvas.width*4*2];
+                pixel25b = data2[i+6+4+canvas.width*4*2];
             }
         }
 
