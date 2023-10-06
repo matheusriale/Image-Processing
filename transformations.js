@@ -9,8 +9,21 @@ function rgb2gray() {
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   getFrequencies();
   drawHistogram();
-
 }
+
+function rgb2grayWeighted() {
+  const data = pixels.data;
+  for (let i = 0; i < data.length; i = i + 4) {
+    const mean = (0.3*data[i] + 0.6*data[i + 1] + 0.1*data[i + 2]);
+    data[i] = mean;
+    data[i + 1] = mean;
+    data[i + 2] = mean;
+  }
+  context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+  getFrequencies();
+  drawHistogram();
+}
+
 
 function toNegative() {
   const data = pixels.data;
