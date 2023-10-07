@@ -168,3 +168,28 @@ function thresholding(t){
 
 }
 
+function sepia() {
+  const data = pixels.data;
+  let inputRed = 0;
+  let inputGreen = 0;
+  let inputBlue = 0;
+  for (let i = 0; i < data.length; i = i + 4) {
+    inputRed = data[i]
+    inputGreen = data[i+1]
+    inputBlue = data[i+2]
+
+    data[i] = (inputRed *0.393) + (inputGreen *0.769) + (inputBlue *0.189);
+    data[i + 1] = (inputRed * 0.349) + (inputGreen *0.686) + (inputBlue *0.168);
+    data[i + 2] = (inputRed * 0.272) + (inputGreen *0.534) + (inputBlue * 0.131);
+  }
+  context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+  getFrequencies();
+  drawHistogram();
+}
+
+
+/*
+outputRed = (inputRed * .393) + (inputGreen *.769) + (inputBlue * .189)
+outputGreen = (inputRed * .349) + (inputGreen *.686) + (inputBlue * .168)
+outputBlue = (inputRed * .272) + (inputGreen *.534) + (inputBlue * .131)
+*/

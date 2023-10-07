@@ -69,7 +69,7 @@ function decrypt(){
         reset_counter = false
         char_bin = char_bin + (original_copy[i]%2)*counter
         //console.log(char_bin,i)
-        if ( original_copy[i]%2==0 //&& counter == 1//bom por pra testar, se nao analisa imagem toda
+        if ( original_copy[i]%2==0 //&& counter == 0//1//bom por pra testar, se nao analisa imagem toda
             && original_copy[i + 1]%2==0
             && original_copy[i + 2]%2==0
             && original_copy[i + 3]%2==0
@@ -88,7 +88,6 @@ function decrypt(){
             message = message.concat(String.fromCharCode(decimal_code))//concatenar mensagem com ultimo caractere descriptografado
             char_bin = 0
             next_char = ''
-            console.log(decimal_code)
         }
         counter = counter/10
         if (reset_counter){
