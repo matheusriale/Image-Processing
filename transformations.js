@@ -178,9 +178,9 @@ function sepia() {
     inputGreen = data[i+1]
     inputBlue = data[i+2]
 
-    data[i] = (inputRed *0.393) + (inputGreen *0.769) + (inputBlue *0.189);
-    data[i + 1] = (inputRed * 0.349) + (inputGreen *0.686) + (inputBlue *0.168);
-    data[i + 2] = (inputRed * 0.272) + (inputGreen *0.534) + (inputBlue * 0.131);
+    data[i] = Math.min(255,(inputRed *0.393) + (inputGreen *0.769) + (inputBlue *0.189));
+    data[i + 1] = Math.min(255,(inputRed * 0.349) + (inputGreen *0.686) + (inputBlue *0.168));
+    data[i + 2] = Math.min(255,(inputRed * 0.272) + (inputGreen *0.534) + (inputBlue * 0.131));
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   getFrequencies();
