@@ -1,6 +1,7 @@
 # Image-Processing
 
 ### Ajeitar Interface
+
 - Sessão de transformações
 
 - Sessão de Esteganografia
@@ -8,8 +9,6 @@
 - Sessão de Convoluções
 
 - Sessão de Sistemas de cores
-
-- 
 
 - Input de matriz (Filtro genérico, Deve ser possível o usuário escolher o tamanho do filtro. Só são necessários filtros quadrados de dimensões ímpares: 3x3, 5x5, 7x7, 9x9, etc. O tamanho máximo deve ser, pelo menos, 9x9 (pode ser maior). A imagem processada deve ter o mesmo tamanho da imagem original.)
 
