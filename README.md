@@ -14,9 +14,6 @@
 
 ### Ajustes
 
-- Limiarização por canais e geral.
-
-- Verificar corretude do sepia (perguntar ao professor)
 
 ### Implementações por fazer
 
@@ -36,6 +33,8 @@
 
 - criar ferramenta para transformação entre sistemas de cores: RGB<->HSV;
 
+- Mostrar mensagem do decrypt da esteganografia
+
 - Chroma-Key (deve ser possível escolher a ‘distância’ da cor verde e a imagem que substituirá);
 
 - Histograma (R, G, B e I)
@@ -43,7 +42,5 @@
 - Equalização de Histograma em imagens coloridas (HSI);
 
 - Ajuste de Matiz, Saturação e Brilho; Ajuste de Canal (C/R, M/G, Y/B);
-
-- Sépia (“escala de cinza amarelada”);
 
 - Implementar escala e rotação com interpolação pelo vizinho mais próximo e linear.
