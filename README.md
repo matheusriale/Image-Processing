@@ -2,11 +2,9 @@
 
 ### Ajeitar Interface
 
-- Sessão de transformações
+- Sessão de transformações (conv)
 
 - Sessão de Esteganografia
-
-- Sessão de Convoluções
 
 - Sessão de Sistemas de cores
 

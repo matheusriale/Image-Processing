@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Processamento de Imagens</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/input.css" />
+    <script src="script/menu.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <nav>
+      <ul class="menu">
+        <li onclick="openSubmenu('file')">
+          <i class="ph ph-file"> </i>
+          <div class="submenu" id="file">
+            <ul>
+              <li>
+                <button>
+                  <label for="upload">Upload</label
+                  ><input id="upload" type="file" onchange="upload(event)" />
+                </button>
+              </li>
+              <li><button>Donwload</button></li>
+            </ul>
+          </div>
+        </li>
+
+        <li onclick="openSubmenu('transformations')">
+          <i class="ph ph-selection-foreground"> </i>
+          <div class="submenu" id="transformations">
+            <ul>
+              <li><button>Undo</button></li>
+              <li><button>Grayscale</button></li>
+              <li><button>To grayscale (Weighted)</button></li>
+              <li><button>To negative</button></li>
+              <li><button>Logarithmic transform</button></li>
+              <li><button>Histogram Equalize</button></li>
+              <li><button>Gamma Transformation</button></li>
+              <li><button>Thresholding</button></li>
+              <li><button>Convolution Gauss</button></li>
+              <li><button>Convolution Laplace</button></li>
+              <li><button>Convolution Median</button></li>
+              <li><button>Convolution Mean</button></li>
+              <li><button>Sepia</button></li>
+            </ul>
+          </div>
+        </li>
+        <li onclick="openSubmenu('steganography')">
+          <i class="ph ph-qr-code"></i>
+          <div class="submenu" id="steganography">
+            <ul>
+              <li>
+                <button onclick="openModal('steganographyModal')">
+                  Encrypt
+                </button>
+              </li>
+              <li><button onclick="decrypt()">Decrypt</button></li>
+            </ul>
+          </div>
+        </li>
+        <li><i class="ph ph-palette"></i></li>
+      </ul>
+    </nav>
+    <main><canvas id="image"></canvas></main>
+    <div class="modal" id="steganographyModal">
+      <div class="content">
+        <h2>Steganography encrypt</h2>
+        <textarea
+          id="steganographyMessage"
+          placeholder="Digite uma mensagem:"
+          rows="8"
+        ></textarea>
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+          <button onclick="encrypt()">Encrypt</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="steganographyModalDecrypt">
+      <div class="content">
+        <h2>Decrypted message</h2>
+        <p id="steganographyDecrypt"></p>
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script/steganography.js"></script>
+    <script src="script/upload.js"></script>
+    <script src="script/modal.js"></script>
+  </body>
+</html>
