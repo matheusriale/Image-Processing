@@ -8,8 +8,10 @@ function upload(event){       // função chamada
     image = new Image();
     image.src = URL.createObjectURL(event.target.files[0]); //Pegar link da imagem
     image.addEventListener("load",()=>{   // Força tag a ter certo comportamento
-        canvas.width = 500;
-        canvas.height = (500/image.width) *image.height;
+        const width = image.width > 500 ? 500 : image.width;
+        canvas.width = width;
+        canvas.height = (width/image.width) *image.height;
+        console.log(canvas.width,canvas.height)
         context.drawImage(image,0,0,canvas.width,canvas.height); // Desenhar imagem dentro do contexto
         pixels  = context.getImageData(0,0,canvas.width,canvas.height); // Captura pixels da imagem
         original_copy = [...pixels.data]

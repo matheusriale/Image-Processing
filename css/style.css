@@ -14,9 +14,9 @@ body {
 }
 
 main {
-
-   padding: 5rem 0;
-    overflow-y: auto;
+  align-items: center;
+  padding: 5rem 0;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
 }
