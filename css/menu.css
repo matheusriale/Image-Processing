@@ -29,7 +29,7 @@ nav {
 
 .menu i {
   font-size: 30px;
-  color: white;
+  color: var(--primary);
 }
 
 .submenu {
