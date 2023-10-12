@@ -15,7 +15,7 @@ function convolution3x3(kernel, mediana) {
 
     // Laço que define os valores dos pixels 1 a 9 baseado na imagem:
     for (i = 0; i < data.length; i = i + 4) {
-        
+    
         // TRATANDO OS PIXELS 1 A 3:
         // Se estiver na primeira linha da imagem, pixels 1 a 3 serão zerados:
         if (i<canvas.width*4) {
@@ -146,7 +146,34 @@ function convolution3x3(kernel, mediana) {
         }
     }
 
+    let maior = maxVal(data);
+    let menor = minVal(data);
+    let maior2 = maxVal(data2);
+    let menor2 = minVal(data2);
+
+    console.log(maior, menor);
+    console.log(maior2, menor2);
+
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
     getFrequencies();
     drawHistogram();
+}
+
+function maxVal(array){
+    let indexOfMax = 0;
+    for (let i = 0; i < array.length; i++){
+        if (array[i] > array[indexOfMax]){
+            indexOfMax = i;
+        }
+    }
+    return array[indexOfMax];
+}
+function minVal(array){
+    let indexOfMax = 0;
+    for (let i = 0; i < array.length; i++){
+        if (array[i] < array[indexOfMax]){
+            indexOfMax = i;
+        }
+    }
+    return array[indexOfMax];
 }
