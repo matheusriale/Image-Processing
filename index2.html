@@ -68,7 +68,7 @@
           <div class="submenu" id="colors">
             <ul>
               <li>
-                <button onclick="openModal('colorsModal')">RGB/HSV</button>
+                <button onclick="openModal('colorsModal')">RGB<->HSV</button>
               </li>
               <li><button onclick="decrypt()">Decrypt</button></li>
             </ul>
@@ -114,7 +114,8 @@
 
     <div class="modal" id="colorsModal">
       <div class="content">
-        <h2>RGB/HSV</h2>
+        <h2>RGB<->HSV</h2>
+        
         <button onclick="rgbToHSV('220','32','255')"> RGB TO HSV</button>
         <button onclick="hsvToRGB('300','100','100')"> RGB TO HSV</button>
         <div class="buttons">
