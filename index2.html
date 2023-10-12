@@ -32,19 +32,22 @@
           <i class="ph ph-selection-foreground"> </i>
           <div class="submenu" id="transformations">
             <ul>
-              <li><button>Undo</button></li>
-              <li><button>Grayscale</button></li>
-              <li><button>To grayscale (Weighted)</button></li>
-              <li><button>To negative</button></li>
-              <li><button>Logarithmic transform</button></li>
-              <li><button>Histogram Equalize</button></li>
-              <li><button>Gamma Transformation</button></li>
+              <li><button onclick = "undo()">Undo</button></li>
+              <li><button onclick = "rgb2gray()">Grayscale</button></li>
+              <li><button onclick = "rgb2grayWeighted()">To grayscale (Weighted)</button></li>
+              <li><button onclick = "toNegative()">To negative</button></li>
+              <li><button onclick = "logTransformation()">Logarithmic transform</button></li>
+              <li><button onclick = "histEqualize()">Histogram Equalize</button></li>
+
+              <li><div id ="gammabox"><label for ="gamma">Gamma Transformation</label><input id = "gamma" type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" /></div></li>
               <li><button>Thresholding</button></li>
+              
               <li><button>Convolution Gauss</button></li>
               <li><button>Convolution Laplace</button></li>
               <li><button>Convolution Median</button></li>
               <li><button>Convolution Mean</button></li>
-              <li><button>Sepia</button></li>
+              <li><button>Convolution Generic Kernel</button></li>
+              <li><button onclick = "sepia()">Sepia</button></li>
             </ul>
           </div>
         </li>
@@ -124,7 +127,7 @@
       </div>
     </div>
 
-
+    <script src="script/transformations.js"></script>
     <script src="script/colors.js"></script>
     <script src="script/steganography.js"></script>
     <script src="script/upload.js"></script>
