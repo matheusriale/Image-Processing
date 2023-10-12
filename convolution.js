@@ -158,7 +158,7 @@ function convolutionGauss9x9() {
 // Filtro de aguçamento (nitidez) por Laplaciano 3x3:
 function convolutionLaplace3x3() {
     let kernel = [0, -1,  0,
-                 -1,  5, -1,
+                 -1,  4, -1,
                   0, -1,  0];
     convolution3x3(kernel, false);
 }
@@ -167,7 +167,7 @@ function convolutionLaplace3x3() {
 function convolutionLaplace5x5() {
     let kernel = [0,  0, -1,  0,  0,
                   0, -1, -2, -1,  0,
-                 -1, -2, 17, -2, -1,
+                 -1, -2, 16, -2, -1,
                   0, -1, -2, -1,  0,
                   0,  0, -1,  0,  0];
     convolution5x5(kernel, false);
@@ -178,7 +178,7 @@ function convolutionLaplace7x7() {
     let kernel = [0,  0, -1, -1, -1,  0,  0,
                   0, -1, -3, -3, -3, -1,  0,
                  -1, -3,  0,  7,  0, -3, -1,
-                 -1, -3,  7, 25,  7, -3, -1,
+                 -1, -3,  7, 24,  7, -3, -1,
                  -1, -3,  0,  7,  0, -3, -1,
                   0, -1, -3, -3, -3, -1,  0,
                   0,  0, -1, -1, -1,  0,  0];
@@ -197,4 +197,34 @@ function convolutionLaplace9x9() {
                   0, -2, -3, -5, -5, -5, -3, -2,  0,
                   0,  0, -3, -2, -2, -2, -3,  0,  0,];
     convolution9x9(kernel, false);
+}
+
+function convolutionSharpeningLaplace3x3() {
+    let data2 = [...pixels.data];
+    convolutionLaplace3x3();
+    let copypixels = pixels; //copiar valores, novo array
+    let data = copypixels.data;
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data[i] + data2[i];
+        data[i+1] = data[i+1] + data2[i+1];
+        data[i+2] = data[i+2] + data2[i+2];
+    }
+    context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+    getFrequencies();
+    drawHistogram();
+}
+
+function convolutionSharpeningHighboost3x3() {
+    let data2 = [...pixels.data];
+    convolutionGauss3x3();
+    let copypixels = pixels; //copiar valores, novo array
+    let data = copypixels.data;
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data2[i] + 3*(data2[i] - data[i]);
+        data[i+1] = data2[i+1] + 3*(data2[i+1] - data[i+1]);
+        data[i+2] = data2[i+2] + 3*(data2[i+2] - data[i+2]);
+    }
+    context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+    getFrequencies();
+    drawHistogram();
 }
