@@ -24,13 +24,29 @@ function rgbToHSV(r,g,b){
     }
     else{s = 0}
 
-    s = s //*100
-    v = v_max//*100;
+    s = s *100
+    v = v_max*100;
     console.log(h,s,v);
     return [h,s,v];
 }
 
-function hsvToRGB(h,s,v){//h (0-360), s(0-1) v(0-1)
+function hsvToRGB(h,s,v){//h (0-360), s(0-100) v(0-100)
+    s = s/100
+    v = v/100
+    let c = v*s
+    let x = c*(1-Math.abs((h/60)%2 - 1))
+    let m = v-c 
+    let newR,newG,newB,r,g,b
+    if (0<=h && h<60)        {newR = c;newG = x; newB = 0;}
+    else if (60<=h && h<120) {newR = x;newG = c ;newB = 0;}
+    else if (120<=h && h<180){newR = 0;newG = c ;newB = x;}
+    else if (180<=h && h<240){newR = 0;newG = x ;newB = c;}
+    else if (240<=h && h<300){newR = x;newG = 0 ;newB = c;}
+    else if (300<=h && h<360){newR = c;newG = 0 ;newB = x;}
 
-
+    r = (newR+m)*255
+    g = (newG+m)*255
+    b = (newB+m)*255
+    console.log(r,g,b)
+    return [r,g,b]
 }
