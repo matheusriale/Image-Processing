@@ -16,7 +16,6 @@ function rgbToHSV(r,g,b){
     else{s = 0}
     s = s *100
     v = v_max*100;
-    console.log(h,s,v);
     return [h,s,v];
 }
 
@@ -37,6 +36,5 @@ function hsvToRGB(h,s,v){//h (0-360), s(0-100) v(0-100)
     r = Math.round((newR+m)*255)
     g = Math.round((newG+m)*255)
     b = Math.round((newB+m)*255)
-    console.log(r,g,b)
     return [r,g,b]
 }

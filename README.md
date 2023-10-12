@@ -4,8 +4,8 @@ i -> implementado mas não colocado na interface ainda
 x -> implementado e colocado na interface
 [ ] -> por fazer
 
-- [i] Negativo
-- [i] Transformações logarítmicas
+- [x] Negativo
+- [x] Transformações logarítmicas
 - [i] Potência (correção de gama)
 - [i] Linear definidas por partes
 - [x] Esteganografia
@@ -31,7 +31,7 @@ x -> implementado e colocado na interface
 - [ ] Ajuste de Matiz 
 - [ ] Saturação e Brilho 
 - [ ] Ajuste de Canal (C/R, M/G, Y/B) 
-- [i] Sépia 
+- [x] Sépia 
 - [ ] Escala com interpolação pelo vizinho mais próximo 
 - [ ] Escala com interpolação linear
 - [ ] Rotação com interpolação pelo vizinho mais próximo 

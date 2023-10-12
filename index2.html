@@ -40,14 +40,22 @@
               <li><button onclick = "histEqualize()">Histogram Equalize</button></li>
 
               <li><div id ="gammabox"><label for ="gamma">Gamma Transformation</label><input id = "gamma" type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" /></div></li>
-              <li><button>Thresholding</button></li>
-              
-              <li><button>Convolution Gauss</button></li>
-              <li><button>Convolution Laplace</button></li>
-              <li><button>Convolution Median</button></li>
-              <li><button>Convolution Mean</button></li>
-              <li><button>Convolution Generic Kernel</button></li>
+              <li><div id ="thresholding"><label for ="thresholding">Thresholding</label><input id = "thresholding" type ="number" min = "0" onchange = "thresholding(event.target.value)" step="1.0" /></div></li>
               <li><button onclick = "sepia()">Sepia</button></li>
+              <li><button onclick = "applyChromakey()">Sepia</button></li>
+            </ul>
+          </div>
+        </li>
+
+        <li onclick="openSubmenu('convolutions')">
+          <i class="ph ph-corners-out"></i>
+          <div class="submenu" id="convolutions">
+            <ul>
+              <li><button onclick = "convolutionGauss3x3()">Convolution Gauss</button></li>
+              <li><button onclick = "convolutionLaplace3x3()"> Convolution Laplace</button></li>
+              <li><button onclick = "convolutionMediana3x3()">Convolution Median</button></li>
+              <li><button  onclick = "convolutionMedia3x3()">Convolution Mean</button></li>
+              <li><button>Convolution Generic Kernel</button></li>
             </ul>
           </div>
         </li>
@@ -73,17 +81,11 @@
               <li>
                 <button onclick="openModal('colorsModal')">RGB<->HSV</button>
               </li>
-              <li><button onclick="decrypt()">Decrypt</button></li>
+              <li><button onclick="decrypt()"> Ajustar matiz saturação e brilho</button></li>
             </ul>
           </div>
-          
        </li>
       </ul>
-
-
-
-
-
     </nav>
 
     <main>
@@ -127,6 +129,9 @@
       </div>
     </div>
 
+
+    <script src="script/chromakey.js"></script>
+    <script src="script/convolutions.js"></script>
     <script src="script/transformations.js"></script>
     <script src="script/colors.js"></script>
     <script src="script/steganography.js"></script>
