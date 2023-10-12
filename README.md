@@ -8,7 +8,7 @@ x -> implementado e colocado na interface
 - [i] Transformações logarítmicas
 - [i] Potência (correção de gama)
 - [i] Linear definidas por partes
-- [i] Esteganografia
+- [x] Esteganografia
 - [i] Histograma 
 - [ ] Equalização de histograma
 - [i] Limiarização 
