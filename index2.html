@@ -32,17 +32,50 @@
           <i class="ph ph-selection-foreground"> </i>
           <div class="submenu" id="transformations">
             <ul>
-              <li><button onclick = "undo()">Undo</button></li>
-              <li><button onclick = "rgb2gray()">Grayscale</button></li>
-              <li><button onclick = "rgb2grayWeighted()">To grayscale (Weighted)</button></li>
-              <li><button onclick = "toNegative()">To negative</button></li>
-              <li><button onclick = "logTransformation()">Logarithmic transform</button></li>
-              <li><button onclick = "histEqualize()">Histogram Equalize</button></li>
+              <li><button onclick="undo()">Undo</button></li>
+              <li><button onclick="rgb2gray()">Grayscale</button></li>
+              <li>
+                <button onclick="rgb2grayWeighted()">
+                  To grayscale (Weighted)
+                </button>
+              </li>
+              <li><button onclick="toNegative()">To negative</button></li>
+              <li>
+                <button onclick="logTransformation()">
+                  Logarithmic transform
+                </button>
+              </li>
+              <li>
+                <button onclick="histEqualize()">Histogram Equalize</button>
+              </li>
 
-              <li><div id ="gammabox"><label for ="gamma">Gamma Transformation</label><input id = "gamma" type ="number" min = "0" onchange = "gammaTransformation(event.target.value)" step=".25" /></div></li>
-              <li><div id ="thresholding"><label for ="thresholding">Thresholding</label><input id = "thresholding" type ="number" min = "0" onchange = "thresholding(event.target.value)" step="1.0" /></div></li>
-              <li><button onclick = "sepia()">Sepia</button></li>
-              <li><button onclick = "applyChromakey()">Sepia</button></li>
+              <li>
+                <div id="gammabox">
+                  <label for="gamma">Gamma Transformation</label
+                  ><input
+                    id="gamma"
+                    type="number"
+                    min="0"
+                    onchange="gammaTransformation(event.target.value)"
+                    step=".25"
+                  />
+                </div>
+              </li>
+              <li>
+                <div id="thresholding">
+                  <label for="thresholding">Thresholding</label
+                  ><input
+                    id="thresholding"
+                    type="number"
+                    min="0"
+                    onchange="thresholding(event.target.value)"
+                    step="1.0"
+                  />
+                </div>
+              </li>
+
+              <li><button onclick="sepia()">Sepia</button></li>
+              <li><button onclick="applyChromakey()">ChromaKey</button></li>
             </ul>
           </div>
         </li>
@@ -51,15 +84,31 @@
           <i class="ph ph-corners-out"></i>
           <div class="submenu" id="convolutions">
             <ul>
-              <li><button onclick = "convolutionGauss3x3()">Convolution Gauss</button></li>
-              <li><button onclick = "convolutionLaplace3x3()"> Convolution Laplace</button></li>
-              <li><button onclick = "convolutionMediana3x3()">Convolution Median</button></li>
-              <li><button  onclick = "convolutionMedia3x3()">Convolution Mean</button></li>
+              <li>
+                <button onclick="convolutionGauss3x3()">
+                  Convolution Gauss
+                </button>
+              </li>
+              <li>
+                <button onclick="convolutionLaplace3x3()">
+                  Convolution Laplace
+                </button>
+              </li>
+              <li>
+                <button onclick="convolutionMediana3x3()">
+                  Convolution Median
+                </button>
+              </li>
+              <li>
+                <button onclick="convolutionMedia3x3()">
+                  Convolution Mean
+                </button>
+              </li>
               <li><button>Convolution Generic Kernel</button></li>
             </ul>
           </div>
         </li>
-        
+
         <li onclick="openSubmenu('steganography')">
           <i class="ph ph-qr-code"></i>
           <div class="submenu" id="steganography">
@@ -74,24 +123,28 @@
           </div>
         </li>
 
-        <li  onclick="openSubmenu('colors')">
+        <li onclick="openSubmenu('colors')">
           <i class="ph ph-palette"></i>
           <div class="submenu" id="colors">
             <ul>
               <li>
                 <button onclick="openModal('colorsModal')">RGB<->HSV</button>
               </li>
-              <li><button onclick="decrypt()"> Ajustar matiz saturação e brilho</button></li>
+              <li>
+                <button onclick="decrypt()">
+                  Ajustar matiz saturação e brilho
+                </button>
+              </li>
             </ul>
           </div>
-       </li>
+        </li>
       </ul>
     </nav>
 
     <main>
       <section><canvas id="image"></canvas></section>
     </main>
-    
+
     <div class="modal" id="steganographyModal">
       <div class="content">
         <h2>Steganography encrypt</h2>
@@ -120,15 +173,14 @@
     <div class="modal" id="colorsModal">
       <div class="content">
         <h2>RGB<->HSV</h2>
-        
-        <button onclick="rgbToHSV('220','32','255')"> RGB TO HSV</button>
-        <button onclick="hsvToRGB('300','100','100')"> RGB TO HSV</button>
+
+        <button onclick="rgbToHSV('220','32','255')">RGB TO HSV</button>
+        <button onclick="hsvToRGB('300','100','100')">RGB TO HSV</button>
         <div class="buttons">
           <button onclick="closeModal()">Cancel</button>
         </div>
       </div>
     </div>
-
 
     <script src="script/chromakey.js"></script>
     <script src="script/convolutions.js"></script>
