@@ -48,6 +48,7 @@
             </ul>
           </div>
         </li>
+        
         <li onclick="openSubmenu('steganography')">
           <i class="ph ph-qr-code"></i>
           <div class="submenu" id="steganography">
@@ -61,8 +62,25 @@
             </ul>
           </div>
         </li>
-        <li><i class="ph ph-palette"></i></li>
+
+        <li  onclick="openSubmenu('colors')">
+          <i class="ph ph-palette"></i>
+          <div class="submenu" id="colors">
+            <ul>
+              <li>
+                <button onclick="openModal('colorsModal')">RGB/HSV</button>
+              </li>
+              <li><button onclick="decrypt()">Decrypt</button></li>
+            </ul>
+          </div>
+          
+       </li>
       </ul>
+
+
+
+
+
     </nav>
 
     <main>
@@ -94,6 +112,18 @@
       </div>
     </div>
 
+    <div class="modal" id="colorsModal">
+      <div class="content">
+        <h2>RGB/HSV</h2>
+        <button onclick="rgbToHSV('220','32','255')"></button>
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="script/colors.js"></script>
     <script src="script/steganography.js"></script>
     <script src="script/upload.js"></script>
     <script src="script/modal.js"></script>
