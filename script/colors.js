@@ -47,16 +47,14 @@ function rgbToHSL(r,g,b){
     let cmax = Math.max(newr,newg,newb)
     let cmin = Math.min(newr,newg,newb)
     let delta = cmax-cmin
-
     l = (cmax+cmin)/2
+
     if(delta == 0){h = 0;s = 0}
     else if(cmax==newr && g>=b){h = 60*(((newg-newb)/delta)%6);}
     else if(cmax==newr && g<b){h = 360 + 60*(((newg-newb)/delta)%6);}
     else if(cmax==newg){h = 60*(((newb-newr)/delta) + 2)}
     else if(cmax==newb){h = 60*(((newr-newg)/delta) + 4)}
-
     if(delta!=0){s = delta/(1-Math.abs(2*l - 1))}
-    console.log(h,s,l)
     return [h,s,l]
 }
 
@@ -75,7 +73,6 @@ function hslToRGB(h,s,l){
     r = Math.round((newR+m)*255)
     g = Math.round((newG+m)*255)
     b = Math.round((newB+m)*255)
-    console.log(r,g,b)
     return [r,g,b]
 }
 
