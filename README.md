@@ -2,6 +2,7 @@
 
 i -> implementado mas não colocado na interface ainda
 x -> implementado e colocado na interface
+r -> Rafael vai fazer :D
 [ ] -> por fazer
 
 - [x] Negativo
@@ -17,8 +18,8 @@ x -> implementado e colocado na interface
 - [x] Filtragem pela mediana 
 - [x] Aguçamento (nitidez) por Laplaciano 
 - [x] High-Boost 
-- [ ] Filtros de Sobel 
-- [ ] Detecção não linear de bordas pelo gradiente (magnitude) 
+- [r] Filtros de Sobel 
+- [r] Detecção não linear de bordas pelo gradiente (magnitude) 
 - [ ] Cálculo da Transformada Discreta de Fourier 
 - [ ] Exibição e edição do espectro
 - [ ] Transformada Inversa 
@@ -32,7 +33,7 @@ x -> implementado e colocado na interface
 - [ ] Saturação e Brilho 
 - [ ] Ajuste de Canal (C/R, M/G, Y/B) 
 - [x] Sépia 
-- [ ] Escala com interpolação pelo vizinho mais próximo 
-- [ ] Escala com interpolação linear
-- [ ] Rotação com interpolação pelo vizinho mais próximo 
-- [ ] Rotação com interpolação linear
+- [r] Escala com interpolação pelo vizinho mais próximo 
+- [r] Escala com interpolação linear
+- [r] Rotação com interpolação pelo vizinho mais próximo 
+- [r] Rotação com interpolação linear
