@@ -152,7 +152,7 @@
               </li>
 
 
-              <li><button>Convolution Generic Kernel</button></li>
+              <li><button onclick="openModal('kernelModal')">Convolution Generic Kernel</button></li>
             </ul>
           </div>
         </li>
@@ -207,6 +207,24 @@
         </div>
       </div>
     </div>
+
+    <div class="modal" id="kernelModal">
+      <div class="content">
+        <h2>Apply generic kernel</h2>
+        <textarea
+          id="genericKernelArray"
+          placeholder="Digite o kernel:"
+          rows="5"
+        >[0,0,0,
+ 0,0,0,
+ 0,0,0] </textarea>
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+          <button onclick="genericKernel()">Apply</button>
+        </div>
+      </div>
+    </div>
+
 
     <div class="modal" id="steganographyModalDecrypt">
       <div class="content">
