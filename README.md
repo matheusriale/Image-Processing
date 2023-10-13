@@ -4,16 +4,18 @@
 
 [x] -> implementado e colocado na interface
 
+[p] -> PRONTO
+
 [ ] -> por fazer
 
-- [x] Negativo
-- [x] Transformações logarítmicas
-- [x] Potência (correção de gama)
+- [p] Negativo
+- [p] Transformações logarítmicas
+- [p] Potência (correção de gama)
 - [i] Linear definidas por partes
-- [x] Esteganografia
+- [p] Esteganografia
 - [i] Histograma 
 - [ ] Equalização de histograma
-- [i] Limiarização 
+- [p] Limiarização 
 - [i] Aplicação de filtro genérico por convolução
 - [x] Filtro de suavização da média (simples e ponderado) 
 - [x] Filtragem pela mediana 
@@ -33,7 +35,7 @@
 - [ ] Ajuste de Matiz 
 - [ ] Saturação e Brilho 
 - [ ] Ajuste de Canal (C/R, M/G, Y/B) 
-- [x] Sépia 
+- [p] Sépia 
 - [r] Escala com interpolação pelo vizinho mais próximo 
 - [r] Escala com interpolação linear
 - [r] Rotação com interpolação pelo vizinho mais próximo 
