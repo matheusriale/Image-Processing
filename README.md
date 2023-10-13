@@ -12,11 +12,11 @@ x -> implementado e colocado na interface
 - [i] Histograma 
 - [ ] Equalização de histograma
 - [i] Limiarização 
-- [ ] Aplicação de filtro genérico por convolução
-- [ ] Filtro de suavização da média (simples e ponderado) 
-- [ ] Filtragem pela mediana 
-- [ ] Aguçamento (nitidez) por Laplaciano 
-- [ ] High-Boost 
+- [i] Aplicação de filtro genérico por convolução
+- [x] Filtro de suavização da média (simples e ponderado) 
+- [x] Filtragem pela mediana 
+- [x] Aguçamento (nitidez) por Laplaciano 
+- [x] High-Boost 
 - [ ] Filtros de Sobel 
 - [ ] Detecção não linear de bordas pelo gradiente (magnitude) 
 - [ ] Cálculo da Transformada Discreta de Fourier 
@@ -26,7 +26,7 @@ x -> implementado e colocado na interface
 - [ ] Histograma (R, G, B e I) 
 - [ ] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
-- [ ] Suavização e Aguçamento em imagens coloridas 
+- [x] Suavização e Aguçamento em imagens coloridas 
 - [i] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
 - [ ] Ajuste de Matiz 
 - [ ] Saturação e Brilho 
