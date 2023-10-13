@@ -8,8 +8,6 @@ function callConvolution(tipo){
 function genericKernel(){
     let kernelgen = JSON.parse(genKernel.value)
     let kernel_len = kernelgen.length
-    console.log(genKernel)
-    console.log(kernelgen)
     if(kernel_len==9){ // como trabalhamo com kernel em formato de vetor, len será n*n, com n dimensão das colunas do kernel
         convolution3x3(kernelgen,false)
     }

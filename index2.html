@@ -176,11 +176,11 @@
           <div class="submenu" id="colors">
             <ul>
               <li>
-                <button onclick="openModal('colorsModal')">RGB<->HSV</button>
+                <button onclick="openModal('rgbToHSVModal')">RGB<->HSV</button>
               </li>
               <li>
-                <button onclick="decrypt()">
-                  Ajustar matiz saturação e brilho
+                <button onclick="openModal('adjustHSLModal')">
+                  Adjust HSL 
                 </button>
               </li>
             </ul>
@@ -208,6 +208,8 @@
       </div>
     </div>
 
+
+    <!-- -->
     <div class="modal" id="kernelModal">
       <div class="content">
         <h2>Apply generic kernel</h2>
@@ -236,12 +238,24 @@
       </div>
     </div>
 
-    <div class="modal" id="colorsModal">
+    <div class="modal" id="rgbToHSVModal">
       <div class="content">
         <h2>RGB<->HSV</h2>
 
         <button onclick="rgbToHSV('220','32','255')">RGB TO HSV</button>
         <button onclick="hsvToRGB('300','100','100')">RGB TO HSV</button>
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="adjustHSLModal">
+      <div class="content">
+        <h2>Adjust hue, saturation and brightness</h2>
+
+        <button onclick="rgbToHSL('64','0','128')">RGB TO HSL</button>
+        <button onclick="hslToRGB('0','0','0.75')">HSL TO RGB</button>
         <div class="buttons">
           <button onclick="closeModal()">Cancel</button>
         </div>
