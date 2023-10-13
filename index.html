@@ -20,12 +20,15 @@
     <button onclick = "decrypt()">Decrypt</button>
     <div id ="thresholding"><label for ="thresholding">Thresholding</label><input id = "thresholding" type ="number" min = "0" onchange = "thresholding(event.target.value)" step="1.0" /></div>
     <button onclick = "sepia()">Sepia</button>
-    <button onclick = "convolution(0, 3)">Convolution Media 3x3</button>
+    <button onclick = "convolution(0, 3)">Convolution Média 3x3</button>
     <button onclick = "convolution(1, 3)">Convolution Mediana 3x3</button>
     <button onclick = "convolution(2, 3)">Convolution Gauss 3x3</button>
     <button onclick = "convolution(3, 3)">Convolution Laplace 3x3</button>
-    <button onclick = "convolution(4, 3)">Aguçamento Laplace 3x3</button>
-    <button onclick = "convolution(5, 3)">Aguçamento High-boost 3x3</button>
+    <button onclick = "convolution(4, 3)">Aguçamento por Laplace 3x3</button>
+    <button onclick = "convolution(5, 3)">Aguçamento por High-boost 3x3</button>
+    <button onclick = "convolution(6, 3)">Filtro Sobel x</button>
+    <button onclick = "convolution(7, 3)">Filtro Sobel y</button>
+    <button onclick = "convolution(8, 3)">Detecção de bordas por gradiente</button>
 
     <canvas id = "image"></canvas>
     <canvas id = "histogram" width = "400" height = "150"></canvas>
