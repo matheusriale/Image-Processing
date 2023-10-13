@@ -97,37 +97,61 @@
               <li>
               <button onclick="callConvolution(0)">
                 Convolution Mean
-                <input id="conv" type="number" min="3" max="9" step="2.0" />
+                <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
               </button>
             </li>
               <li>
                 <button onclick="callConvolution(1)">
                   Convolution Median
-                  <input id="conv" type="number" min="3" max="9" step="2.0" />
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3" />
                 </button>
               </li>
               <li>
                 <button onclick="callConvolution(2)">
                   Convolution Gauss
-                  <input id="conv" type="number" min="3" max="9" step="2.0" />
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li>
                 <button onclick="callConvolution(3)">
                   Convolution Laplace
-                  <input id="conv" type="number" min="3" max="9" step="2.0" />
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li>
-                <button onclick="convolutionSharpeningLaplace3x3()">
-                  Sharpening
+                <button onclick="callConvolution(4)">
+                  Sharpening Laplace
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li>
-                <button onclick="convolutionSharpeningHighboost3x3()">
+                <button onclick="callConvolution(5)">
                   High-boost
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
+              <li>
+                <button onclick="callConvolution(6)">
+                  Sobel X
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                </button>
+              </li>
+
+              <li>
+                <button onclick="callConvolution(7)">
+                  Sobel Y
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                </button>
+              </li>
+
+              <li>
+                <button onclick="callConvolution(8)">
+                  Border detection gradient
+                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                </button>
+              </li>
+
+
               <li><button>Convolution Generic Kernel</button></li>
             </ul>
           </div>

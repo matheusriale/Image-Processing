@@ -8,6 +8,10 @@
 
 [ ] -> por fazer
 
+*Convoluções estão precisando ser iniciadas com a primeira convolução... (vou ajeitar e pôr pronto qnd terminar)
+
+*Convoluções funcionando ao clicar nas setinhas para aumentar a dim do kernel.
+
 - [p] Negativo
 - [p] Transformações logarítmicas
 - [p] Potência (correção de gama)
@@ -16,21 +20,21 @@
 - [i] Histograma 
 - [ ] Equalização de histograma
 - [p] Limiarização 
-- [i] Aplicação de filtro genérico por convolução
-- [x] Filtro de suavização da média (simples e ponderado) 
-- [x] Filtragem pela mediana 
-- [x] Aguçamento (nitidez) por Laplaciano 
-- [x] High-Boost 
-- [x] Filtros de Sobel 
-- [x] Detecção não linear de bordas pelo gradiente (magnitude) 
+- [ ] Aplicação de filtro genérico por convolução
+- [p] Filtro de suavização da média (simples e ponderado) 
+- [p] Filtragem pela mediana 
+- [p] Aguçamento (nitidez) por Laplaciano 
+- [p] High-Boost 
+- [p] Filtros de Sobel 
+- [p] Detecção não linear de bordas pelo gradiente (magnitude) 
 - [ ] Cálculo da Transformada Discreta de Fourier 
 - [ ] Exibição e edição do espectro
 - [ ] Transformada Inversa 
-- [x] Chroma-Key 
+- [p] Chroma-Key 
 - [ ] Histograma (R, G, B e I) 
 - [ ] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
-- [x] Suavização e Aguçamento em imagens coloridas 
+- [p] Suavização e Aguçamento em imagens coloridas 
 - [i] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
 - [ ] Ajuste de Matiz 
 - [ ] Saturação e Brilho 
