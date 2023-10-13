@@ -1,8 +1,6 @@
 
 // Aplica a transformação de escala na imagem
 function scale(ratio) {
-    let copypixels = pixels; // copiar valores, novo array
-    let data = copypixels.data;
     let data2 = [...pixels.data];
 
     larguraOriginal = canvas.width;
@@ -28,10 +26,7 @@ function scale(ratio) {
 
         i2 = linhaNaOriginal*larguraOriginal*4 + colunaNaOriginal;
 
-        data[i] = 0;
-        data[i+1] = 0;
-        data[i+2] = 0;
-        data[i+3] = 0;
+        console.log(data2[i2], data2[i2+1], data2[i2+2], data2[i2+3]);
 
         data3[i] = data2[i2];
         data3[i+1] = data2[i2+1];
