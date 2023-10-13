@@ -14,13 +14,13 @@
 - [i] Histograma 
 - [ ] Equalização de histograma
 - [i] Limiarização 
-- [ ] Aplicação de filtro genérico por convolução
-- [ ] Filtro de suavização da média (simples e ponderado) 
-- [ ] Filtragem pela mediana 
-- [ ] Aguçamento (nitidez) por Laplaciano 
-- [ ] High-Boost 
-- [ ] Filtros de Sobel 
-- [ ] Detecção não linear de bordas pelo gradiente (magnitude) 
+- [i] Aplicação de filtro genérico por convolução
+- [x] Filtro de suavização da média (simples e ponderado) 
+- [x] Filtragem pela mediana 
+- [x] Aguçamento (nitidez) por Laplaciano 
+- [x] High-Boost 
+- [r] Filtros de Sobel 
+- [r] Detecção não linear de bordas pelo gradiente (magnitude) 
 - [ ] Cálculo da Transformada Discreta de Fourier 
 - [ ] Exibição e edição do espectro
 - [ ] Transformada Inversa 
@@ -28,13 +28,13 @@
 - [ ] Histograma (R, G, B e I) 
 - [ ] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
-- [ ] Suavização e Aguçamento em imagens coloridas 
+- [x] Suavização e Aguçamento em imagens coloridas 
 - [i] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
 - [ ] Ajuste de Matiz 
 - [ ] Saturação e Brilho 
 - [ ] Ajuste de Canal (C/R, M/G, Y/B) 
 - [x] Sépia 
-- [ ] Escala com interpolação pelo vizinho mais próximo 
-- [ ] Escala com interpolação linear
-- [ ] Rotação com interpolação pelo vizinho mais próximo 
-- [ ] Rotação com interpolação linear
+- [r] Escala com interpolação pelo vizinho mais próximo 
+- [r] Escala com interpolação linear
+- [r] Rotação com interpolação pelo vizinho mais próximo 
+- [r] Rotação com interpolação linear
