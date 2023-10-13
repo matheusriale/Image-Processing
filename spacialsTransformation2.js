@@ -14,11 +14,11 @@ function scale(ratio) {
     canvas.width = larguraNova;
     canvas.height = alturaNova;
 
-    n = (larguraNova*4)*alturaNova;
-    data = new Array(n).fill(0);
+    const imageData = context.createImageData(larguraNova, alturaNova);
+    let data3 = imageData.data;
 
     // Laço que percorre a nova imagem preenchendo com base na anterior:
-    for (i = 0; i < data.length; i = i + 4) {
+    for (i = 0; i < data3.length; i = i + 4) {
 
         linhaAtual = Math.floor( i / (larguraNova*4) );
         colunaAtual = i % (larguraNova*4);
@@ -26,13 +26,20 @@ function scale(ratio) {
         linhaNaOriginal = Math.round( linhaAtual / ratio );
         colunaNaOriginal = Math.round( colunaAtual / ratio );
 
-        i2 = linhaNaOriginal*larguraOriginal + colunaNaOriginal;
+        i2 = linhaNaOriginal*larguraOriginal*4 + colunaNaOriginal;
 
-        data[i] = data2[i2];
+        data[i] = 0;
+        data[i+1] = 0;
+        data[i+2] = 0;
+        data[i+3] = 0;
+
+        data3[i] = data2[i2];
+        data3[i+1] = data2[i2+1];
+        data3[i+2] = data2[i2+2];
+        data3[i+3] = data2[i2+3];
     }
 
-    context.drawImage(image,0,0,canvas.width,canvas.height)
-    pixels = context.getImageData(0,0,canvas.width,canvas.height);
+    context.putImageData(imageData, 0, 0);
     getFrequencies();
     drawHistogram();
 }
