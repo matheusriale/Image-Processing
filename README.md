@@ -1,12 +1,14 @@
 ### Checklist
 
-i -> implementado mas não colocado na interface ainda
-x -> implementado e colocado na interface
+[i] -> implementado mas não colocado na interface ainda
+
+[x] -> implementado e colocado na interface
+
 [ ] -> por fazer
 
 - [x] Negativo
 - [x] Transformações logarítmicas
-- [i] Potência (correção de gama)
+- [x] Potência (correção de gama)
 - [i] Linear definidas por partes
 - [x] Esteganografia
 - [i] Histograma 
@@ -22,7 +24,7 @@ x -> implementado e colocado na interface
 - [ ] Cálculo da Transformada Discreta de Fourier 
 - [ ] Exibição e edição do espectro
 - [ ] Transformada Inversa 
-- [ ] Chroma-Key 
+- [x] Chroma-Key 
 - [ ] Histograma (R, G, B e I) 
 - [ ] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
