@@ -20,7 +20,7 @@
 - [i] Histograma 
 - [ ] Equalização de histograma
 - [p] Limiarização 
-- [ ] Aplicação de filtro genérico por convolução
+- [p] Aplicação de filtro genérico por convolução
 - [p] Filtro de suavização da média (simples e ponderado) 
 - [p] Filtragem pela mediana 
 - [p] Aguçamento (nitidez) por Laplaciano 
