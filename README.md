@@ -1,18 +1,21 @@
 ### Checklist
 
-i -> implementado mas não colocado na interface ainda
-x -> implementado e colocado na interface
-r -> Rafael vai fazer :D
+[i] -> implementado mas não colocado na interface ainda
+
+[x] -> implementado e colocado na interface
+
+[p] -> PRONTO
+
 [ ] -> por fazer
 
-- [x] Negativo
-- [x] Transformações logarítmicas
-- [i] Potência (correção de gama)
+- [p] Negativo
+- [p] Transformações logarítmicas
+- [p] Potência (correção de gama)
 - [i] Linear definidas por partes
-- [x] Esteganografia
+- [p] Esteganografia
 - [i] Histograma 
 - [ ] Equalização de histograma
-- [i] Limiarização 
+- [p] Limiarização 
 - [i] Aplicação de filtro genérico por convolução
 - [x] Filtro de suavização da média (simples e ponderado) 
 - [x] Filtragem pela mediana 
@@ -23,7 +26,7 @@ r -> Rafael vai fazer :D
 - [ ] Cálculo da Transformada Discreta de Fourier 
 - [ ] Exibição e edição do espectro
 - [ ] Transformada Inversa 
-- [ ] Chroma-Key 
+- [x] Chroma-Key 
 - [ ] Histograma (R, G, B e I) 
 - [ ] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
@@ -32,7 +35,7 @@ r -> Rafael vai fazer :D
 - [ ] Ajuste de Matiz 
 - [ ] Saturação e Brilho 
 - [ ] Ajuste de Canal (C/R, M/G, Y/B) 
-- [x] Sépia 
+- [p] Sépia 
 - [r] Escala com interpolação pelo vizinho mais próximo 
 - [r] Escala com interpolação linear
 - [r] Rotação com interpolação pelo vizinho mais próximo 

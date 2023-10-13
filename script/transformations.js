@@ -1,10 +1,9 @@
-function undo(){
-  context.drawImage(image,0,0,canvas.width,canvas.height)
-  pixels  = context.getImageData(0,0,canvas.width,canvas.height);
+function undo() {
+  context.drawImage(image, 0, 0, canvas.width, canvas.height);
+  pixels = context.getImageData(0, 0, canvas.width, canvas.height);
   // getFrequencies();
   // drawHistogram();
 }
-
 
 function rgb2gray() {
   const data = pixels.data;
@@ -22,7 +21,7 @@ function rgb2gray() {
 function rgb2grayWeighted() {
   const data = pixels.data;
   for (let i = 0; i < data.length; i = i + 4) {
-    const mean = (0.3*data[i] + 0.6*data[i + 1] + 0.1*data[i + 2]);
+    const mean = 0.3 * data[i] + 0.6 * data[i + 1] + 0.1 * data[i + 2];
     data[i] = mean;
     data[i + 1] = mean;
     data[i + 2] = mean;
@@ -32,7 +31,6 @@ function rgb2grayWeighted() {
   // drawHistogram();
 }
 
-
 function toNegative() {
   const data = pixels.data;
   for (i = 0; i < data.length; i = i + 4) {
@@ -40,7 +38,7 @@ function toNegative() {
     data[i + 1] = 255 - data[i + 1];
     data[i + 2] = 255 - data[i + 2];
   }
-  
+
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   // getFrequencies();
   // drawHistogram();
@@ -119,7 +117,6 @@ function piecewiseLinear(r1, s1, r2, s2) {
       data[i + 2] = a_f * original_copy[i + 2] + b_f;
     }
   }
-  //pixels = copypixels;
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   // getFrequencies();
@@ -129,28 +126,26 @@ function piecewiseLinear(r1, s1, r2, s2) {
 function histEqualize() {
   let copypixels = pixels;
   let probabilities = hist;
-  let sk = Array(256).fill(0.0)
+  let sk = Array(256).fill(0.0);
   let mn = canvas.width * canvas.height;
   let data = copypixels.data;
 
   for (let i = 0; i < 256; i = i + 1) {
-    probabilities[i] = (hist[i] / mn); 
-
-  } 
+    probabilities[i] = hist[i] / mn;
+  }
   //probabilidades acumuladas
-  for (let i = 1; i<probabilities.length; i = i + 1){
-    probabilities[i] = probabilities[i]+probabilities[i-1];                                     
+  for (let i = 1; i < probabilities.length; i = i + 1) {
+    probabilities[i] = probabilities[i] + probabilities[i - 1];
   }
 
-  for (let i = 0;i<probabilities.length; i = i + 1){
-    sk[i] = Math.round(255.0*probabilities[i]);
+  for (let i = 0; i < probabilities.length; i = i + 1) {
+    sk[i] = Math.round(255.0 * probabilities[i]);
   }
 
-  for (let i = 0; i<pixels.data.length;i = i+4){
-    data[i]=sk[original_copy[i]]
-    data[i+1]=sk[original_copy[i+1]]
-    data[i+2]=sk[original_copy[i+2]]
-
+  for (let i = 0; i < pixels.data.length; i = i + 4) {
+    data[i] = sk[original_copy[i]];
+    data[i + 1] = sk[original_copy[i + 1]];
+    data[i + 2] = sk[original_copy[i + 2]];
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   // getFrequencies();
@@ -158,22 +153,30 @@ function histEqualize() {
 }
 
 //Limiarizacao
-function thresholding(t){
+function thresholding(t) {
   let copypixels = pixels; //copiar valores, novo array
   let data = copypixels.data;
   for (i = 0; i < data.length; i = i + 4) {
-    if (original_copy[i]>t) {data[i] = 255;}
-    else {data[i]=0};
-    if (original_copy[i+1]>t) {data[i+1] = 255;}
-    else {data[i+1]=0;}
-    if (original_copy[i+2]>t) {data[i+2] = 255;}
-    else {data[i+2]=0;}
+    if (original_copy[i] > t) {
+      data[i] = 255;
+    } else {
+      data[i] = 0;
+    }
+    if (original_copy[i + 1] > t) {
+      data[i + 1] = 255;
+    } else {
+      data[i + 1] = 0;
+    }
+    if (original_copy[i + 2] > t) {
+      data[i + 2] = 255;
+    } else {
+      data[i + 2] = 0;
+    }
   }
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   // getFrequencies();
   // drawHistogram();
-
 }
 
 function sepia() {
@@ -182,19 +185,27 @@ function sepia() {
   let inputGreen = 0;
   let inputBlue = 0;
   for (let i = 0; i < data.length; i = i + 4) {
-    inputRed = data[i]
-    inputGreen = data[i+1]
-    inputBlue = data[i+2]
+    inputRed = data[i];
+    inputGreen = data[i + 1];
+    inputBlue = data[i + 2];
 
-    data[i] = Math.min(255,(inputRed *0.393) + (inputGreen *0.769) + (inputBlue *0.189));
-    data[i + 1] = Math.min(255,(inputRed * 0.349) + (inputGreen *0.686) + (inputBlue *0.168));
-    data[i + 2] = Math.min(255,(inputRed * 0.272) + (inputGreen *0.534) + (inputBlue * 0.131));
+    data[i] = Math.min(
+      255,
+      inputRed * 0.393 + inputGreen * 0.769 + inputBlue * 0.189
+    );
+    data[i + 1] = Math.min(
+      255,
+      inputRed * 0.349 + inputGreen * 0.686 + inputBlue * 0.168
+    );
+    data[i + 2] = Math.min(
+      255,
+      inputRed * 0.272 + inputGreen * 0.534 + inputBlue * 0.131
+    );
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   // getFrequencies();
   // drawHistogram();
 }
-
 
 /*
 outputRed = (inputRed * .393) + (inputGreen *.769) + (inputBlue * .189)

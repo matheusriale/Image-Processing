@@ -1,3 +1,30 @@
+// Seleciona a função correta
+function convolution(tipo, n) {
+    if (tipo == 0 && n == 3) convolutionMedia3x3();
+    if (tipo == 0 && n == 5) convolutionMedia5x5();
+    if (tipo == 0 && n == 7) convolutionMedia7x7();
+    if (tipo == 0 && n == 9) convolutionMedia9x9();
+    if (tipo == 1 && n == 3) convolutionMediana3x3();
+    if (tipo == 1 && n == 5) convolutionMediana5x5();
+    if (tipo == 1 && n == 7) convolutionMediana7x7();
+    if (tipo == 1 && n == 9) convolutionMediana9x9();
+    if (tipo == 2 && n == 3) convolutionGauss3x3();
+    if (tipo == 2 && n == 5) convolutionGauss5x5();
+    if (tipo == 2 && n == 7) convolutionGauss7x7();
+    if (tipo == 2 && n == 9) convolutionGauss9x9();
+    if (tipo == 3 && n == 3) convolutionLaplace3x3();
+    if (tipo == 3 && n == 5) convolutionLaplace5x5();
+    if (tipo == 3 && n == 7) convolutionLaplace7x7();
+    if (tipo == 3 && n == 9) convolutionLaplace9x9();
+    if (tipo == 4 && n == 3) convolutionSharpeningLaplace3x3();
+    if (tipo == 4 && n == 5) convolutionSharpeningLaplace5x5();
+    if (tipo == 4 && n == 7) convolutionSharpeningLaplace7x7();
+    if (tipo == 4 && n == 9) convolutionSharpeningLaplace9x9();
+    if (tipo == 5 && n == 3) convolutionSharpeningHighboost3x3();
+    if (tipo == 5 && n == 5) convolutionSharpeningHighboost5x5();
+    if (tipo == 5 && n == 7) convolutionSharpeningHighboost7x7();
+    if (tipo == 5 && n == 9) convolutionSharpeningHighboost9x9();
+}
 
 // Filtragem pela mediana 3x3:
 function convolutionMediana3x3() {

@@ -75,7 +75,17 @@
               </li>
 
               <li><button onclick="sepia()">Sepia</button></li>
-              <li><button onclick="applyChromakey()">ChromaKey</button></li>
+              <li><button>
+                <label for="chromakey">Chroma Key</label
+                ><input id="chromakey" type="file" onchange="uploadChromaKey(event)" />
+                <input
+                    id="distCK"
+                    type="number"
+                    min="0"
+                    step="1.0"
+                  />
+              </button>
+              </li>
             </ul>
           </div>
         </li>

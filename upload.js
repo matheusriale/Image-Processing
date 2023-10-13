@@ -23,6 +23,8 @@ function upload(event){       // função chamada
         
     })
 }
+
+
 function undo(){
     context.drawImage(image,0,0,canvas.width,canvas.height)
     pixels  = context.getImageData(0,0,canvas.width,canvas.height);

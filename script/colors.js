@@ -38,3 +38,7 @@ function hsvToRGB(h,s,v){//h (0-360), s(0-100) v(0-100)
     b = Math.round((newB+m)*255)
     return [r,g,b]
 }
+
+function rgbImageToHSV(){
+    return;
+}
