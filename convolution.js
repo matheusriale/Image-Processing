@@ -477,18 +477,60 @@ function convolutionGradient3x3() {
 
 // Filtro de detecção de bordas por gradiente 5x5:
 function convolutionGradient5x5() {
+    let data2 = [...pixels.data];                        // Imagem original
     convolutionSobelx5x5();
+    let data3 = [...pixels.data];                        // Imagem depois do sobel x
+    let copypixels = pixels;
+    let data = copypixels.data;                          
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data2[i];
+        data[i+1] = data2[i+1];
+        data[i+2] = data2[i+2];
+    }
     convolutionSobely5x5();
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data[i] + data3[i];
+        data[i+1] = data[i+1] + data3[i+1];
+        data[i+2] = data[i+2] + data3[i+2];
+    }
 }
 
 // Filtro de detecção de bordas por gradiente 7x7:
 function convolutionGradient7x7() {
+    let data2 = [...pixels.data];                        // Imagem original
     convolutionSobelx7x7();
+    let data3 = [...pixels.data];                        // Imagem depois do sobel x
+    let copypixels = pixels;
+    let data = copypixels.data;                          
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data2[i];
+        data[i+1] = data2[i+1];
+        data[i+2] = data2[i+2];
+    }
     convolutionSobely7x7();
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data[i] + data3[i];
+        data[i+1] = data[i+1] + data3[i+1];
+        data[i+2] = data[i+2] + data3[i+2];
+    }
 }
 
 // Filtro de detecção de bordas por gradiente 9x9:
 function convolutionGradient9x9() {
+    let data2 = [...pixels.data];                        // Imagem original
     convolutionSobelx9x9();
+    let data3 = [...pixels.data];                        // Imagem depois do sobel x
+    let copypixels = pixels;
+    let data = copypixels.data;                          
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data2[i];
+        data[i+1] = data2[i+1];
+        data[i+2] = data2[i+2];
+    }
     convolutionSobely9x9();
+    for (let i = 0; i < data.length; i = i + 4){
+        data[i] = data[i] + data3[i];
+        data[i+1] = data[i+1] + data3[i+1];
+        data[i+2] = data[i+2] + data3[i+2];
+    }
 }

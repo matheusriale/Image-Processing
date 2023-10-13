@@ -21,8 +21,8 @@
 - [x] Filtragem pela mediana 
 - [x] Aguçamento (nitidez) por Laplaciano 
 - [x] High-Boost 
-- [r] Filtros de Sobel 
-- [r] Detecção não linear de bordas pelo gradiente (magnitude) 
+- [x] Filtros de Sobel 
+- [x] Detecção não linear de bordas pelo gradiente (magnitude) 
 - [ ] Cálculo da Transformada Discreta de Fourier 
 - [ ] Exibição e edição do espectro
 - [ ] Transformada Inversa 
