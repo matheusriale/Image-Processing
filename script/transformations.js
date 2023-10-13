@@ -207,8 +207,3 @@ function sepia() {
   // drawHistogram();
 }
 
-/*
-outputRed = (inputRed * .393) + (inputGreen *.769) + (inputBlue * .189)
-outputGreen = (inputRed * .349) + (inputGreen *.686) + (inputBlue * .168)
-outputBlue = (inputRed * .272) + (inputGreen *.534) + (inputBlue * .131)
-*/

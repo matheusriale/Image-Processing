@@ -1,3 +1,10 @@
+const convValue = document.getElementById("conv");
+
+
+function callConvolution(tipo){
+    convolution(tipo , convValue.value)
+}
+
 // Seleciona a função correta
 function convolution(tipo, n) {
     if (tipo == 0 && n == 3) convolutionMedia3x3();
