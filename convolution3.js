@@ -146,14 +146,6 @@ function convolution3x3(kernel, mediana) {
         }
     }
 
-    let maior = maxVal(data);
-    let menor = minVal(data);
-    let maior2 = maxVal(data2);
-    let menor2 = minVal(data2);
-
-    console.log(maior, menor);
-    console.log(maior2, menor2);
-
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
     getFrequencies();
     drawHistogram();
