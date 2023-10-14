@@ -10,7 +10,6 @@ const hueHSV = document.getElementById("hueHSV");
 const saturationHSV = document.getElementById("saturationHSV");
 const valueHSV = document.getElementById("valueHSV");
 
-
 r.addEventListener('change',()=>{
     const hsvcolor = rgbToHSV(r.value,g.value,b.value)
     bg_hsv.style.background = `rgb(${r.value},${g.value},${b.value})`
@@ -56,12 +55,6 @@ valueHSV.addEventListener('change',()=>{
     b.value = rgbcolor[2]
 })
 
-
-
-
-
-
-
 function rgbToHSV(r,g,b){
     r = r/255;
     g = g/255;
@@ -69,23 +62,25 @@ function rgbToHSV(r,g,b){
     let h,s,v;
     let v_max = Math.max(Math.max(r,g),b)
     let v_min = Math.min(Math.min(r,g),b)
-
+    console.log()
     if(v_max==r && g>=b){h = 60*((g-b)/(v_max-v_min))}
     if(v_max==r && g<b){h = 360+(60*((g-b)/(v_max-v_min)))}
     if(v_max==g){h = 120+60*((b-r)/(v_max-v_min))}
     if(v_max==b){h = 240+60*((r-g)/(v_max-v_min))}
-
+    if(g == b && b == r){h = 0}
     if (v_max>0){s = (v_max-v_min)/v_max}
     else{s = 0}
     s = s *100
     v = v_max*100;
+    console.log(h)
     return [h,s,v];
+
 }
 
 function hsvToRGB(h,s,v){//h (0-360), s(0-100) v(0-100)
     s = s/100
     v = v/100
-
+    console.log(h)
     let c = v*s
     let x = c*(1-Math.abs((h/60)%2 - 1))
     let m = v-c 
@@ -96,8 +91,6 @@ function hsvToRGB(h,s,v){//h (0-360), s(0-100) v(0-100)
     else if (180<=h && h<240){newR = 0;newG = x ;newB = c;}
     else if (240<=h && h<300){newR = x;newG = 0 ;newB = c;}
     else if (300<=h && h<360){newR = c;newG = 0 ;newB = x;}
-
-    console.log(r,g,b)
 
     r = ((newR+m)*255)
     g = ((newG+m)*255)
@@ -160,3 +153,49 @@ function adjustImageHSL(){
     // getFrequencies();
     // drawHistogram();
   }
+
+
+const rAdjust = document.getElementById("rAdjust")
+const gAdjust = document.getElementById("gAdjust")
+const bAdjust = document.getElementById("bAdjust")
+
+function adjustImageRGB(){
+    let rSum = JSON.parse(rAdjust.value)
+    let gSum = JSON.parse(gAdjust.value)
+    let bSum = JSON.parse(bAdjust.value)
+    let new_pixel,new_rgb
+    const data = pixels.data;
+    for (let i = 0; i < data.length; i = i + 4) {
+      new_rgb = [original_copy[i]+rSum,original_copy[i+1]+gSum,original_copy[i+2]+bSum]
+      data[i] = new_rgb[0];
+      data[i + 1] = new_rgb[1];
+      data[i + 2] = new_rgb[2];
+    }
+    context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+    // getFrequencies();
+    // drawHistogram();
+  }
+
+  const cAdjust = document.getElementById("cAdjust")
+  const mAdjust = document.getElementById("mAdjust")
+  const yAdjust = document.getElementById("yAdjust")
+
+
+function adjustImageCMY(){
+    let cSum = JSON.parse(cAdjust.value)
+    let mSum = JSON.parse(mAdjust.value)
+    let ySum = JSON.parse(yAdjust.value)
+    let new_pixel,new_rgb
+    const data = pixels.data;
+    for (let i = 0; i < data.length; i = i + 4) {
+      new_rgb = [original_copy[i]+mSum+ySum,original_copy[i+1]+cSum+ySum,original_copy[i+2]+cSum+mSum]
+      data[i] = new_rgb[0];
+      data[i + 1] = new_rgb[1];
+      data[i + 2] = new_rgb[2];
+    }
+    context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+    // getFrequencies();
+    // drawHistogram();
+  }
+
+

@@ -15,7 +15,7 @@
 - [p] Negativo
 - [p] Transformações logarítmicas
 - [p] Potência (correção de gama)
-- [ ] Linear definidas por partes
+- [p] Linear definidas por partes
 - [p] Esteganografia
 - [ ] Histograma 
 - [ ] Equalização de histograma
@@ -38,7 +38,7 @@
 - [p] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
 - [p] Ajuste de Matiz 
 - [p] Saturação e Brilho 
-- [ ] Ajuste de Canal (C/R, M/G, Y/B) 
+- [p] Ajuste de Canal (C/R, M/G, Y/B) 
 - [p] Sépia 
 - [r] Escala com interpolação pelo vizinho mais próximo 
 - [r] Escala com interpolação linear

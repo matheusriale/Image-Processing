@@ -27,3 +27,7 @@ main {
   --third: #61677a;
   --fourth: #272829;
 }
+
+#graph{
+  background-color: white;
+}

@@ -87,10 +87,15 @@
                   <input id="distCK" type="number" min="0" step="1.0" />
                 </button>
               </li>
+              <!-- <li>
+                <button>
+                  <label for="scale">Scale</label>
+                  <input id="scale" type="number" min="0" step="0.1" onchange="scale(event.target.value)"/>
+                </button>
+              </li> -->
             </ul>
           </div>
         </li>
-
         <li onclick="openSubmenu('convolutions')">
           <i class="ph ph-corners-out"></i>
           <div class="submenu" id="convolutions">
@@ -182,6 +187,11 @@
                   Adjust HSL 
                 </button>
               </li>
+              <li>
+                <button onclick="openModal('modalRGBCMY')">
+                  RGB/CMY Adjust
+                </button>
+              </li>
             </ul>
           </div>
         </li>
@@ -207,15 +217,13 @@
       </div>
     </div>
 
-
-    <!-- -->
     <div class="modal" id="piecewiseModal">
       <div class="content">
         <h2>Piecewise Linear</h2>
-        <!-- grafico da piecewise aqui -->
-        <textarea></textarea>
+        <canvas id = "graph" width = "300" height = "300"></canvas>
         <div class="buttons">
           <button onclick="closeModal()">Cancel</button>
+          
         </div>
       </div>
     </div>
@@ -268,10 +276,27 @@
           <button onclick="closeModal()">Cancel</button>
         </div>
       </div>
-        
-      
-        
-        
+    </div>
+
+      <div class="modal" id="modalRGBCMY">
+        <div class="content">
+          <h2>RGB,CMY adjust</h2>
+          <div class="labels">
+            <div>
+              <div><label for="rAdjust">R</label><input type="range" id="rAdjust" name="rAdjust" min="0" max="255" value="0" onchange="adjustImageRGB()" step="5"/></div>
+              <div><label for="gAdjust">G</label><input type="range" id="gAdjust" name="gAdjust" min="0" max="255" value="0" onchange="adjustImageRGB()" step="5"/></div>
+              <div><label for="bAdjust">B</label><input type="range" id="bAdjust" name="bAdjust" min="0" max="255" value="0" onchange="adjustImageRGB()" step="5"/></div>
+            </div>
+            <div>
+              <div><label for="cAdjust" font-color = >C</label><input type="range" id="cAdjust" name="cAdjust" min="0" max="255" value="0" onchange="adjustImageCMY()" step="5"/></div>
+              <div><label for="mAdjust" font-color = >M</label><input type="range" id="mAdjust" name="mAdjust" min="0" max="255" value="0" onchange="adjustImageCMY()" step="5"/></div>
+              <div><label for="yAdjust" font-color = >Y</label><input type="range" id="yAdjust" name="yAdjust" min="0" max="255" value="0" onchange="adjustImageCMY()" step="5"/></div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button onclick="closeModal()">Cancel</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -289,6 +314,7 @@
       </div>
     </div>
 
+    <script src="script/graph.js"></script>
     <script src="script/chromakey.js"></script>
     <script src="script/convolutions.js"></script>
     <script src="script/transformations.js"></script>
