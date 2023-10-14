@@ -11,7 +11,8 @@ function upload(event){       // função chamada
         const width = image.width > 500 ? 500 : image.width;
         canvas.width = width;
         canvas.height = (width/image.width) *image.height;
-        console.log(canvas.width,canvas.height)
+        original_width = canvas.width;
+        original_height = canvas.height;
         context.drawImage(image,0,0,canvas.width,canvas.height); // Desenhar imagem dentro do contexto
         pixels  = context.getImageData(0,0,canvas.width,canvas.height); // Captura pixels da imagem
         original_copy = [...pixels.data]

@@ -1,4 +1,6 @@
 function undo() {
+  canvas.width = original_width;
+  canvas.height = original_height;
   context.drawImage(image, 0, 0, canvas.width, canvas.height);
   pixels = context.getImageData(0, 0, canvas.width, canvas.height);
   // getFrequencies();
