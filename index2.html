@@ -45,6 +45,7 @@
                   Logarithmic transform
                 </button>
               </li>
+              <li><button onclick="openModal('piecewiseModal')">Piecewise Linear</button></li>
               <li>
                 <button onclick="histEqualize()">Histogram Equalize</button>
               </li>
@@ -150,8 +151,6 @@
                   <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
-
-
               <li><button onclick="openModal('kernelModal')">Convolution Generic Kernel</button></li>
             </ul>
           </div>
@@ -210,6 +209,17 @@
 
 
     <!-- -->
+    <div class="modal" id="piecewiseModal">
+      <div class="content">
+        <h2>Piecewise Linear</h2>
+        <!-- grafico da piecewise aqui -->
+        <textarea></textarea>
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
     <div class="modal" id="kernelModal">
       <div class="content">
         <h2>Apply generic kernel</h2>
@@ -241,21 +251,38 @@
     <div class="modal" id="rgbToHSVModal">
       <div class="content">
         <h2>RGB<->HSV</h2>
-
-        <button onclick="rgbToHSV('220','32','255')">RGB TO HSV</button>
-        <button onclick="hsvToRGB('300','100','100')">RGB TO HSV</button>
+        <div id="color-hsv"></div>
+        <div class="labels">
+          <div>
+            <div><label for="rRGB">R</label><input type="input" id="rRGB" name="rRGB" min="0" max="255" value="0" /></div>
+            <div><label for="gRGB">G</label><input type="input" id="gRGB" name="gRGB" min="0.0" max="255.0" value="0"/></div>
+            <div><label for="bRGB">B</label><input type="input" id="bRGB" name="bRGB" min="0.0" max="255.0" value="0"/></div>
+          </div>
+          <div>
+            <div><label for="hueHSV">H</label><input type="input" id="hueHSV" name="hueHSV" min="0" max="360" value="0"/></div>
+            <div><label for="saturationHSV">S</label><input type="input" id="saturationHSV" name="saturationHSV" min="0" max="100" value="0"/></div>
+            <div><label for="valueHSV">V</label><input type="input" id="valueHSV" name="valueHSV" min="0" max="100" value="0"/></div>
+          </div>
+        </div>
         <div class="buttons">
           <button onclick="closeModal()">Cancel</button>
         </div>
+      </div>
+        
+      
+        
+        
       </div>
     </div>
 
     <div class="modal" id="adjustHSLModal">
       <div class="content">
         <h2>Adjust hue, saturation and brightness</h2>
-
-        <button onclick="rgbToHSL('64','0','128')">RGB TO HSL</button>
-        <button onclick="hslToRGB('0','0','0.75')">HSL TO RGB</button>
+        <div><label for="hueAdjust" font-color = >HUE</label><input type="range" id="hueAdjust" name="hueAdjust" min="0" max="360" value="0" onchange="adjustImageHSL()"/></div>
+        <div><label for="saturationAdjust" font-color = >SATURATION</label><input type="range" id="saturationAdjust" name="saturationAdjust" min="0.0" max="1.0" value="0" onchange="adjustImageHSL()" step="0.05"/></div>
+        <div><label for="lightnessAdjust" font-color = >LIGHTNESS</label><input type="range" id="lightnessAdjust" name="lightnessAdjust" min="0.0" max="1.0" value="0" onchange="adjustImageHSL()" step="0.05"/></div>
+        <!-- <button onclick="rgbToHSL('64','0','128')">RGB TO HSL</button>
+        <button onclick="hslToRGB('0','0','0.75')">HSL TO RGB</button> -->
         <div class="buttons">
           <button onclick="closeModal()">Cancel</button>
         </div>
