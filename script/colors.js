@@ -150,8 +150,8 @@ function adjustImageHSL(){
       data[i + 2] = new_rgb[2];
     }
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
   }
 
 
@@ -172,8 +172,8 @@ function adjustImageRGB(){
       data[i + 2] = new_rgb[2];
     }
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
   }
 
   const cAdjust = document.getElementById("cAdjust")
@@ -194,8 +194,8 @@ function adjustImageCMY(){
       data[i + 2] = new_rgb[2];
     }
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
   }
 
 

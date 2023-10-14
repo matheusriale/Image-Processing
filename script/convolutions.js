@@ -274,8 +274,8 @@ function convolutionSharpeningLaplace3x3() {
         data[i+2] = data[i+2] + data2[i+2];
     }
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
 }
 
 // Filtro de aguçamento (nitidez) por Laplaciano 5x5:
@@ -337,8 +337,8 @@ function convolutionSharpeningHighboost3x3() {
         data[i+2] = data2[i+2] + 3*(data2[i+2] - data[i+2]);
     }
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
 }
 
 // Filtro de aguçamento (nitidez) por highboost 5x5:
@@ -713,8 +713,8 @@ function convolution3x3(kernel, mediana) {
 
 
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
 }
 
 function maxVal(array){
@@ -1081,8 +1081,8 @@ function convolution5x5(kernel, mediana) {
     }
 
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
 }
 
 // 7x7 -----------------------------------------
@@ -1729,8 +1729,8 @@ function convolution7x7(kernel, mediana) {
         }
     }
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
 }
 
 // 9x9 ---------------------------------------------
@@ -2849,6 +2849,6 @@ function convolution9x9(kernel, mediana) {
         }
     }
     context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
 }

@@ -8,8 +8,6 @@
 
 [ ] -> por fazer
 
-UNDO não
-
 - [p] Negativo
 - [p] Transformações logarítmicas
 - [p] Potência (correção de gama)
@@ -38,7 +36,7 @@ UNDO não
 - [p] Saturação e Brilho 
 - [p] Ajuste de Canal (C/R, M/G, Y/B) 
 - [p] Sépia 
-- [r] Escala com interpolação pelo vizinho mais próximo 
-- [r] Escala com interpolação linear
-- [r] Rotação com interpolação pelo vizinho mais próximo 
-- [r] Rotação com interpolação linear
+- [p] Escala com interpolação pelo vizinho mais próximo 
+- [p] Escala com interpolação linear
+- [] Rotação com interpolação pelo vizinho mais próximo 
+- [] Rotação com interpolação linear

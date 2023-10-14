@@ -31,8 +31,8 @@ function applyChromakey(bg_img, d) {
     }
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function uploadChromaKey(event) {
@@ -50,8 +50,8 @@ function uploadChromaKey(event) {
 
     original_copyCK = [...pixelsck.data];
     applyChromakey(original_copyCK);
-    // getFrequencies();
-    // drawHistogram();
+    getFrequencies();
+    drawHistogram();
     imageCK.style.display = "none"; // Não mostrar a imagem
     cv.remove();
   });

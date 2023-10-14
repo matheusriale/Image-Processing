@@ -16,8 +16,8 @@ function upload(event){       // função chamada
         context.drawImage(image,0,0,canvas.width,canvas.height); // Desenhar imagem dentro do contexto
         pixels  = context.getImageData(0,0,canvas.width,canvas.height); // Captura pixels da imagem
         original_copy = [...pixels.data]
-        // getFrequencies();
-        // drawHistogram();
+        getFrequencies();
+        drawHistogram();
         image.style.display="none"; // Não mostrar a imagem
         // Vemos apenas o Canvas
         closeSubmenu();

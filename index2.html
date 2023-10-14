@@ -91,7 +91,7 @@
               <li>
                 <button>
                   <label for="scale">Linear Scale</label>
-                  <input id="scale" type="number" min="0" step="0.1" onchange="scale(event.target.value)"/>
+                  <input id="scale" type="number" min="0" step="0.1" onchange="scaleBilinear(event.target.value)"/>
                 </button>
               </li>
               <li>
@@ -187,6 +187,9 @@
           <div class="submenu" id="colors">
             <ul>
               <li>
+                <button onclick="openModal('histograms')">Histograms</button>
+              </li>
+              <li>
                 <button onclick="openModal('rgbToHSVModal')">RGB<->HSV</button>
               </li>
               <li>
@@ -263,6 +266,30 @@
       </div>
     </div>
 
+    <div class="modal" id="histograms">
+      <div class="content">
+        <h2>Histograms R,G,B and I </h2>
+        <div class="labels">
+          <div>
+            <canvas id = "histogram" width = "150" height = "150"></canvas>
+          </div>
+          <div>
+            <canvas id = "histogramG" width = "150" height = "150"></canvas>
+          </div>
+          <div>
+            <canvas id = "histogramB" width = "150" height = "150"></canvas>
+          </div>
+          <div>
+            <canvas id = "histogramI" width = "150" height = "150"></canvas>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
     <div class="modal" id="rgbToHSVModal">
       <div class="content">
         <h2>RGB<->HSV</h2>
@@ -322,6 +349,7 @@
     </div>
 
     <!--<script async src="opencv.js" type="text/javascript"></script>-->
+    <script src="script/histogram.js"></script>
     <script src="script/spacialTransformations.js"></script>
     <script src="script/fourier.js"></script>
     <script src="script/graph.js"></script>

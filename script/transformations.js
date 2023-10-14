@@ -3,8 +3,8 @@ function undo() {
   canvas.height = original_height;
   context.drawImage(image, 0, 0, canvas.width, canvas.height);
   pixels = context.getImageData(0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function rgb2gray() {
@@ -16,8 +16,8 @@ function rgb2gray() {
     data[i + 2] = mean;
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function rgb2grayWeighted() {
@@ -29,8 +29,8 @@ function rgb2grayWeighted() {
     data[i + 2] = mean;
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function toNegative() {
@@ -42,8 +42,8 @@ function toNegative() {
   }
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function logTransformation() {
@@ -57,8 +57,8 @@ function logTransformation() {
   pixels = copypixels;
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function gammaTransformation(gamma) {
@@ -72,8 +72,8 @@ function gammaTransformation(gamma) {
   //pixels = copypixels;
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function piecewiseLinear(r1, s1, r2, s2) {
@@ -121,8 +121,8 @@ function piecewiseLinear(r1, s1, r2, s2) {
   }
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function histEqualize() {
@@ -150,8 +150,8 @@ function histEqualize() {
     data[i + 2] = sk[original_copy[i + 2]];
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 //Limiarizacao
@@ -177,8 +177,8 @@ function thresholding(t) {
   }
 
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
 function sepia() {
@@ -205,7 +205,7 @@ function sepia() {
     );
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-  // getFrequencies();
-  // drawHistogram();
+  getFrequencies();
+  drawHistogram();
 }
 
