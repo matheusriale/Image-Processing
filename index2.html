@@ -88,12 +88,18 @@
                   <input id="distCK" type="number" min="0" step="1.0" />
                 </button>
               </li>
-              <!-- <li>
+              <li>
                 <button>
-                  <label for="scale">Scale</label>
+                  <label for="scale">Linear Scale</label>
                   <input id="scale" type="number" min="0" step="0.1" onchange="scale(event.target.value)"/>
                 </button>
-              </li> -->
+              </li>
+              <li>
+                <button>
+                  <label for="scale">NN Interpolation Scale</label>
+                  <input id="scale" type="number" min="0" step="0.1" onchange="scaleNearest(event.target.value)"/>
+                </button>
+              </li>
             </ul>
           </div>
         </li>
@@ -316,6 +322,7 @@
     </div>
 
     <!--<script async src="opencv.js" type="text/javascript"></script>-->
+    <script src="script/spacialTransformations.js"></script>
     <script src="script/fourier.js"></script>
     <script src="script/graph.js"></script>
     <script src="script/chromakey.js"></script>
