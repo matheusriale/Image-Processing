@@ -8,9 +8,7 @@
 
 [ ] -> por fazer
 
-*Convoluções estão precisando ser iniciadas com a primeira convolução... (vou ajeitar e pôr pronto qnd terminar)
-
-*Convoluções funcionando ao clicar nas setinhas para aumentar a dim do kernel.
+UNDO não
 
 - [p] Negativo
 - [p] Transformações logarítmicas
