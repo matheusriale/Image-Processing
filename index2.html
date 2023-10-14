@@ -45,6 +45,7 @@
                   Logarithmic transform
                 </button>
               </li>
+              <li><button onclick="openModal('piecewiseModal')">Piecewise Linear</button></li>
               <li>
                 <button onclick="histEqualize()">Histogram Equalize</button>
               </li>
@@ -150,8 +151,6 @@
                   <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
-
-
               <li><button onclick="openModal('kernelModal')">Convolution Generic Kernel</button></li>
             </ul>
           </div>
@@ -210,6 +209,17 @@
 
 
     <!-- -->
+    <div class="modal" id="piecewiseModal">
+      <div class="content">
+        <h2>Piecewise Linear</h2>
+        <!-- grafico da piecewise aqui -->
+        <textarea></textarea>
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
     <div class="modal" id="kernelModal">
       <div class="content">
         <h2>Apply generic kernel</h2>
