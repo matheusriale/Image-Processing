@@ -13,7 +13,7 @@
 - [p] Potência (correção de gama)
 - [p] Linear definidas por partes
 - [p] Esteganografia
-- [ ] Histograma 
+- [p] Histograma 
 - [ ] Equalização de histograma
 - [p] Limiarização 
 - [p] Aplicação de filtro genérico por convolução
@@ -27,7 +27,7 @@
 - [ ] Exibição e edição do espectro
 - [ ] Transformada Inversa 
 - [p] Chroma-Key 
-- [ ] Histograma (R, G, B e I) 
+- [p] Histograma (R, G, B e I) 
 - [ ] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
 - [p] Suavização e Aguçamento em imagens coloridas 
