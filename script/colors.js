@@ -103,10 +103,3 @@ function adjustImageHSL(){
     // getFrequencies();
     // drawHistogram();
   }
-
-
-
-function rgbImageToHSV(){
-
-    return;
-}
