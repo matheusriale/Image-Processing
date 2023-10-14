@@ -38,3 +38,16 @@
   text-overflow: ellipsis;
   color: var(--primary);
 }
+
+#color-hsv {
+  width: 100%;
+height: 300px;
+background: black;
+}
+.labels{
+  display: flex;
+  }
+
+.content label{
+  color: white;
+}

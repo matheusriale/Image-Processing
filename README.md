@@ -15,9 +15,9 @@
 - [p] Negativo
 - [p] Transformações logarítmicas
 - [p] Potência (correção de gama)
-- [i] Linear definidas por partes
+- [ ] Linear definidas por partes
 - [p] Esteganografia
-- [i] Histograma 
+- [ ] Histograma 
 - [ ] Equalização de histograma
 - [p] Limiarização 
 - [p] Aplicação de filtro genérico por convolução
@@ -35,7 +35,7 @@
 - [ ] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
 - [p] Suavização e Aguçamento em imagens coloridas 
-- [ ] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
+- [p] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
 - [p] Ajuste de Matiz 
 - [p] Saturação e Brilho 
 - [ ] Ajuste de Canal (C/R, M/G, Y/B) 

@@ -2,6 +2,64 @@ const hueAdjust = document.getElementById("hueAdjust");
 const saturationAdjust = document.getElementById("saturationAdjust");
 const lightnessAdjust = document.getElementById("lightnessAdjust");
 
+const r = document.getElementById("rRGB")
+const g = document.getElementById("gRGB")
+const b = document.getElementById("bRGB")
+const bg_hsv = document.getElementById("color-hsv");
+const hueHSV = document.getElementById("hueHSV");
+const saturationHSV = document.getElementById("saturationHSV");
+const valueHSV = document.getElementById("valueHSV");
+
+
+r.addEventListener('change',()=>{
+    const hsvcolor = rgbToHSV(r.value,g.value,b.value)
+    bg_hsv.style.background = `rgb(${r.value},${g.value},${b.value})`
+    hueHSV.value = hsvcolor[0]
+    saturationHSV.value = hsvcolor[1]
+    valueHSV.value = hsvcolor[2]
+})
+g.addEventListener('change',()=>{
+    const hsvcolor = rgbToHSV(r.value,g.value,b.value)
+    bg_hsv.style.background = `rgb(${r.value},${g.value},${b.value})`
+    hueHSV.value = hsvcolor[0]
+    saturationHSV.value = hsvcolor[1]
+    valueHSV.value = hsvcolor[2]
+})
+b.addEventListener('change',()=>{
+    const hsvcolor = rgbToHSV(r.value,g.value,b.value)
+    bg_hsv.style.background = `rgb(${r.value},${g.value},${b.value})`
+    hueHSV.value = hsvcolor[0]
+    saturationHSV.value = hsvcolor[1]
+    valueHSV.value = hsvcolor[2]
+})
+
+hueHSV.addEventListener('change',()=>{
+    const rgbcolor = hsvToRGB(hueHSV.value,saturationHSV.value,valueHSV.value)
+    bg_hsv.style.background = `rgb(${rgbcolor[0]},${rgbcolor[1]},${rgbcolor[2]}`
+    r.value = rgbcolor[0]
+    g.value = rgbcolor[1]
+    b.value = rgbcolor[2]
+    })
+
+saturationHSV.addEventListener('change',()=>{
+    const rgbcolor = hsvToRGB(hueHSV.value,saturationHSV.value,valueHSV.value)
+    bg_hsv.style.background = `rgb(${rgbcolor[0]},${rgbcolor[1]},${rgbcolor[2]}`
+    r.value = rgbcolor[0]
+    g.value = rgbcolor[1]
+    b.value = rgbcolor[2]
+})
+valueHSV.addEventListener('change',()=>{
+    const rgbcolor = hsvToRGB(hueHSV.value,saturationHSV.value,valueHSV.value)
+    bg_hsv.style.background = `rgb(${rgbcolor[0]},${rgbcolor[1]},${rgbcolor[2]}`
+    r.value = rgbcolor[0]
+    g.value = rgbcolor[1]
+    b.value = rgbcolor[2]
+})
+
+
+
+
+
 
 
 function rgbToHSV(r,g,b){
@@ -67,7 +125,6 @@ function rgbToHSL(r,g,b){
 }
 
 function hslToRGB(h,s,l){
-    console.log(s,l)
     let c = (1- Math.abs(2*l - 1))*s
     let x = c*(1-Math.abs((h/60)%2 - 1))
     let m = l-c/2 

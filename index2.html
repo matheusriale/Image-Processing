@@ -251,12 +251,27 @@
     <div class="modal" id="rgbToHSVModal">
       <div class="content">
         <h2>RGB<->HSV</h2>
-
-        <button onclick="rgbToHSV('220','32','255')">RGB TO HSV</button>
-        <button onclick="hsvToRGB('300','100','100')">RGB TO HSV</button>
+        <div id="color-hsv"></div>
+        <div class="labels">
+          <div>
+            <div><label for="rRGB">R</label><input type="input" id="rRGB" name="rRGB" min="0" max="255" value="0" /></div>
+            <div><label for="gRGB">G</label><input type="input" id="gRGB" name="gRGB" min="0.0" max="255.0" value="0"/></div>
+            <div><label for="bRGB">B</label><input type="input" id="bRGB" name="bRGB" min="0.0" max="255.0" value="0"/></div>
+          </div>
+          <div>
+            <div><label for="hueHSV">H</label><input type="input" id="hueHSV" name="hueHSV" min="0" max="360" value="0"/></div>
+            <div><label for="saturationHSV">S</label><input type="input" id="saturationHSV" name="saturationHSV" min="0" max="100" value="0"/></div>
+            <div><label for="valueHSV">V</label><input type="input" id="valueHSV" name="valueHSV" min="0" max="100" value="0"/></div>
+          </div>
+        </div>
         <div class="buttons">
           <button onclick="closeModal()">Cancel</button>
         </div>
+      </div>
+        
+      
+        
+        
       </div>
     </div>
 
