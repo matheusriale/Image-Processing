@@ -253,9 +253,11 @@
     <div class="modal" id="adjustHSLModal">
       <div class="content">
         <h2>Adjust hue, saturation and brightness</h2>
-
-        <button onclick="rgbToHSL('64','0','128')">RGB TO HSL</button>
-        <button onclick="hslToRGB('0','0','0.75')">HSL TO RGB</button>
+        <div><label for="hueAdjust" font-color = >HUE</label><input type="range" id="hueAdjust" name="hueAdjust" min="0" max="360" value="0" onchange="adjustImageHSL()"/></div>
+        <div><label for="saturationAdjust" font-color = >SATURATION</label><input type="range" id="saturationAdjust" name="saturationAdjust" min="0.0" max="1.0" value="0" onchange="adjustImageHSL()" step="0.05"/></div>
+        <div><label for="lightnessAdjust" font-color = >LIGHTNESS</label><input type="range" id="lightnessAdjust" name="lightnessAdjust" min="0.0" max="1.0" value="0" onchange="adjustImageHSL()" step="0.05"/></div>
+        <!-- <button onclick="rgbToHSL('64','0','128')">RGB TO HSL</button>
+        <button onclick="hslToRGB('0','0','0.75')">HSL TO RGB</button> -->
         <div class="buttons">
           <button onclick="closeModal()">Cancel</button>
         </div>
