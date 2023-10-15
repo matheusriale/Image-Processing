@@ -1,8 +1,40 @@
-const convValue = document.getElementById("conv");
+const convValueMean = document.getElementById("convMean");
+const convValueMedian = document.getElementById("convMedian");
+const convValueGauss = document.getElementById("convGauss");
+const convValueLaplace = document.getElementById("convLaplace");
+const convValueSLaplace = document.getElementById("convSLaplace");
+const convValueHighBoost = document.getElementById("convHighBoost");
+const convValueSobelX = document.getElementById("convSobelX");
+const convValueSobelY = document.getElementById("convSobelY");
+const convValueBorderD= document.getElementById("convBorderD");
 const genKernel = document.getElementById("genericKernelArray");
 
-function callConvolution(tipo){
-    convolution(tipo , convValue.value)
+function callConvolutionMean(tipo){
+    convolution(tipo , convValueMean.value)
+}
+function callConvolutionMedian(tipo){
+    convolution(tipo , convValueMedian.value)
+}
+function callConvolutionGauss(tipo){
+    convolution(tipo , convValueGauss.value)
+}
+function callConvolutionLaplace(tipo){
+    convolution(tipo , convValueLaplace.value)
+}
+function callConvolutionSLaplace(tipo){
+    convolution(tipo , convValueSLaplace.value)
+}
+function callConvolutionHighBoost(tipo){
+    convolution(tipo , convValueHighBoost.value)
+}
+function callConvolutionSobelX(tipo){
+    convolution(tipo , convValueSobelX.value)
+}
+function callConvolutionSobelY(tipo){
+    convolution(tipo , convValueSobelY.value)
+}
+function callConvolutionBorderD(tipo){
+    convolution(tipo , convValueBorderD.value)
 }
 
 function genericKernel(){
@@ -312,6 +344,7 @@ function convolutionSharpeningLaplace7x7() {
 
 // Filtro de aguçamento (nitidez) por Laplaciano 9x9:
 function convolutionSharpeningLaplace9x9() {
+
     let data2 = [...pixels.data];                       // Imagem original
     convolutionLaplace9x9();
     let copypixels = pixels;

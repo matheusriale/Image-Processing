@@ -46,12 +46,6 @@
                 </button>
               </li>
               <li><button onclick="openModal('piecewiseModal')">Piecewise Linear</button></li>
-              <li>
-                <button onclick="histEqualize()">Histogram Equalize RGB</button>
-              </li>
-              <li>
-                <button onclick="histEqualizeHSI()">Histogram Equalize HSI</button>
-              </li>
 
               <li>
                 <div id="gammabox">
@@ -73,7 +67,7 @@
                     type="number"
                     min="0"
                     onchange="thresholding(event.target.value)"
-                    step="1.0"
+                    step="10.0"
                   />
                 </div>
               </li>
@@ -99,9 +93,21 @@
               </li>
               <li>
                 <button>
-                  <label for="scale">NN Interpolation Scale</label>
+                  <label for="scale">Nearest Neighbor Interpolation Scale</label>
                   <input id="scale" type="number" min="0" step="0.1" onchange="scaleNearest(event.target.value)"/>
                 </button>
+              </li>
+              <li>
+                <button>
+                <label for="rotation">Bilinear Rotation</label>
+                <input id="scale" type="number" min="0" step="10" onchange="rotationBilinear(event.target.value)"/>
+                </button>
+              </li>
+              <li>
+                <button>
+                <label for="rotation">Nearest Neighbor Rotation</label>
+                <input id="scale" type="number" min="0" step="10" onchange="rotationNearest(event.target.value)"/>
+              </button>
               </li>
             </ul>
           </div>
@@ -111,59 +117,59 @@
           <div class="submenu" id="convolutions">
             <ul>              
               <li>
-              <button onclick="callConvolution(0)">
+              <button onclick="callConvolutionMean(0)">
                 Convolution Mean
-                <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                <input id="convMean" type="number" min="3" max="9" step="2.0" value="3"/>
               </button>
             </li>
               <li>
-                <button onclick="callConvolution(1)">
+                <button onclick="callConvolutionMedian(1)">
                   Convolution Median
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3" />
+                  <input id="convMedian" type="number" min="3" max="9" step="2.0" value="3" />
                 </button>
               </li>
               <li>
-                <button onclick="callConvolution(2)">
+                <button onclick="callConvolutionGauss(2)">
                   Convolution Gauss
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                  <input id="convGauss" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li>
-                <button onclick="callConvolution(3)">
+                <button onclick="callConvolutionLaplace(3)">
                   Convolution Laplace
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                  <input id="convLaplace" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li>
-                <button onclick="callConvolution(4)">
+                <button onclick="callConvolutionSLaplace(4)">
                   Sharpening Laplace
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                  <input id="convSLaplace" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li>
-                <button onclick="callConvolution(5)">
+                <button onclick="callConvolutionHighBoost(5)">
                   High-boost
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                  <input id="convHighBoost" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li>
-                <button onclick="callConvolution(6)">
+                <button onclick="callConvolutionSobelX(6)">
                   Sobel X
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                  <input id="convSobelX" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
 
               <li>
-                <button onclick="callConvolution(7)">
+                <button onclick="callConvolutionSobelY(7)">
                   Sobel Y
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                  <input id="convSobelY" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
 
               <li>
-                <button onclick="callConvolution(8)">
+                <button onclick="callConvolutionBorderD(8)">
                   Border detection gradient
-                  <input id="conv" type="number" min="3" max="9" step="2.0" value="3"/>
+                  <input id="convBorderD" type="number" min="3" max="9" step="2.0" value="3"/>
                 </button>
               </li>
               <li><button onclick="openModal('kernelModal')">Convolution Generic Kernel</button></li>
@@ -189,6 +195,12 @@
           <i class="ph ph-palette"></i>
           <div class="submenu" id="colors">
             <ul>
+              <li>
+                <button onclick="histEqualize()">Histogram Equalize RGB</button>
+              </li>
+              <li>
+                <button onclick="histEqualizeHSI()">Histogram Equalize HSI</button>
+              </li>
               <li>
                 <button onclick="openModal('histograms')">Histograms RGBI</button>
               </li>

@@ -129,3 +129,74 @@ function scaleBilinear(ratio) {
     getFrequencies();
     drawHistogram();
 }
+
+// Aplica a transformação de rotação na imagem, interpolando pelo mais próximo:
+function rotationNearest(angle) {
+
+    // Pixels da imagem original:
+    let data2 = [...pixels.data];
+
+    // Calculando a largura e altura da nova imagem:
+    let larguraOriginal = canvas.width;
+    let alturaOriginal = canvas.height;
+
+    let angleRadians = parseFloat(((parseFloat(angle) * Math.PI) / 180).toFixed(2));
+
+    x1 = larguraOriginal*Math.cos(angleRadians) - 0*Math.sin(angleRadians);
+    y1 = larguraOriginal*Math.sin(angleRadians) + 0*Math.cos(angleRadians);
+
+    x2 = larguraOriginal*Math.cos(angleRadians) - alturaOriginal*Math.sin(angleRadians);
+    y2 = larguraOriginal*Math.sin(angleRadians) + alturaOriginal*Math.cos(angleRadians);
+
+    x3 = 0*Math.cos(angleRadians) - alturaOriginal*Math.sin(angleRadians);
+    y3 = 0*Math.sin(angleRadians) + alturaOriginal*Math.cos(angleRadians);
+
+    let larguraNova = Math.ceil( Math.max(0, x1, x2, x3) - Math.min(0, x1, x2, x3) );
+    let alturaNova = Math.ceil( Math.max(0, y1, y2, y3) - Math.min(0, y1, y2, y3) );
+
+    // Atualizando o tamanho do canvas de exibição:
+    canvas.width = larguraNova;
+    canvas.height = alturaNova;
+
+    // Criando um novo objeto ImageData:
+    const imageData = context.createImageData(larguraNova, alturaNova);
+    let data3 = imageData.data;
+
+    // Laço que percorre a nova imagem preenchendo com base na anterior:
+    for (i = 0; i < data3.length; i = i + 4) {
+
+        // Calculando a linha e coluna do elemento atual da nova imagem:
+        let linhaAtual = Math.floor( i / (larguraNova*4) );
+        let colunaAtual = Math.round( (i % (larguraNova*4)) / 4 );
+
+        // Interpolando a linha e coluna correspondente na imagem original:
+        let linhaNaOriginal = Math.round( (colunaAtual+Math.min(0, x1, x2, x3))*Math.sin(0-angleRadians) + (linhaAtual+Math.min(0, y1, y2, y3))*Math.cos(0-angleRadians) )
+        let colunaNaOriginal = Math.round( (colunaAtual+Math.min(0, x1, x2, x3))*Math.cos(0-angleRadians) - (linhaAtual+Math.min(0, y1, y2, y3))*Math.sin(0-angleRadians) )
+
+        if (linhaNaOriginal < 0 || colunaNaOriginal < 0 || linhaNaOriginal >= alturaOriginal || colunaNaOriginal >= larguraOriginal) {
+            data3[i] = 0;
+            data3[i+1] = 0;
+            data3[i+2] = 0;
+            data3[i+3] = 255;
+        }
+        else {
+            // Calculando o índice na imagem original:
+            let i2 = linhaNaOriginal*larguraOriginal*4 + colunaNaOriginal*4;
+
+            // Atribuindo o valor do pixel:
+            data3[i] = data2[i2];
+            data3[i+1] = data2[i2+1];
+            data3[i+2] = data2[i2+2];
+            data3[i+3] = data2[i2+3];
+        }
+    }
+
+    context.putImageData(imageData, 0, 0);
+    pixels = context.getImageData(0,0,canvas.width,canvas.height);
+    getFrequencies();
+    drawHistogram();
+}
+
+// Aplica a transformação de rotação na imagem, interpolando bilinearmente:
+function rotationBilinear(angle) {
+}
