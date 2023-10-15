@@ -8,7 +8,8 @@
 
 [ ] -> por fazer
 
-*Equalização de histograma está acumulando (erro)
+*Equalização de histograma está acumulando
+*Separar mais histogramas (estão próximos, juntando as coordenadas)
 
 - [p] Negativo
 - [p] Transformações logarítmicas
