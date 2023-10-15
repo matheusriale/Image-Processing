@@ -10,7 +10,6 @@ dist.addEventListener("change", (event) => {
 function applyChromakey(bg_img, d) {
   let copypixels = pixels;
   const data = copypixels.data; //original image = data
-  console.log(original_copy);
 
   let pix_distance;
   for (let i = 0; i < data.length; i = i + 4) {
