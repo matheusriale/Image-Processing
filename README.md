@@ -31,7 +31,7 @@
 - [p] Chroma-Key 
 - [p] Histograma (R, G, B e I) 
 - [p] Equalização de Histograma em imagens coloridas (RGB) 
-- [ ] Equalização de Histograma em imagens coloridas (HSI) 
+- [p] Equalização de Histograma em imagens coloridas (HSI) 
 - [p] Suavização e Aguçamento em imagens coloridas 
 - [p] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
 - [p] Ajuste de Matiz 
