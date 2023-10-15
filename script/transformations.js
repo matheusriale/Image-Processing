@@ -164,6 +164,37 @@ function histEqualize() {
   drawHistogram();
 }
 
+function histEqualizeHSI() {
+  let copypixels = pixels;
+  let probabilitiesI = histI;
+  let skI = Array(256).fill(0.0);
+  let mn = canvas.width * canvas.height;
+  let data = copypixels.data;
+
+  for (let i = 0; i < 256; i = i + 1) {
+    probabilitiesI[i] = histI[i] / mn;
+  }
+  //probabilidades acumuladas
+  for (let i = 1; i < probabilitiesI.length; i = i + 1) {
+    probabilitiesI[i] = probabilitiesI[i] + probabilitiesI[i - 1];
+  }
+
+  for (let i = 0; i < probabilitiesI.length; i = i + 1) {
+    skI[i] = Math.round(255.0 * probabilitiesI[i]);
+  }
+  
+  for (let i = 0; i < pixels.data.length; i = i + 4) {
+    data[i] = skI[original_copy[i]];
+    data[i + 1] = skI[original_copy[i+1]];
+    data[i + 2] = skI[original_copy[i+2]];
+  }
+  context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
+  getFrequencies();
+  drawHistogram();
+}
+
+
+
 //Limiarizacao
 function thresholding(t) {
   let copypixels = pixels; //copiar valores, novo array
