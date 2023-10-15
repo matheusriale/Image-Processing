@@ -127,27 +127,45 @@ function piecewiseLinear(r1, s1, r2, s2) {
 
 function histEqualize() {
   let copypixels = pixels;
-  let probabilities = hist;
-  let sk = Array(256).fill(0.0);
+  let probabilitiesR = histR;
+  let probabilitiesG = histG;
+  let probabilitiesB = histB;
+  let skR = Array(256).fill(0.0);
+  let skG = Array(256).fill(0.0);
+  let skB = Array(256).fill(0.0);
   let mn = canvas.width * canvas.height;
   let data = copypixels.data;
 
   for (let i = 0; i < 256; i = i + 1) {
-    probabilities[i] = hist[i] / mn;
+    probabilitiesR[i] = histR[i] / mn;
+    probabilitiesG[i] = histG[i] / mn;
+    probabilitiesB[i] = histB[i] / mn;
   }
   //probabilidades acumuladas
-  for (let i = 1; i < probabilities.length; i = i + 1) {
-    probabilities[i] = probabilities[i] + probabilities[i - 1];
+  for (let i = 1; i < probabilitiesR.length; i = i + 1) {
+    probabilitiesR[i] = probabilitiesR[i] + probabilitiesR[i - 1];
+  }
+  for (let i = 1; i < probabilitiesG.length; i = i + 1) {
+    probabilitiesG[i] = probabilitiesG[i] + probabilitiesG[i - 1];
+  }
+  for (let i = 1; i < probabilitiesB.length; i = i + 1) {
+    probabilitiesB[i] = probabilitiesB[i] + probabilitiesB[i - 1];
   }
 
-  for (let i = 0; i < probabilities.length; i = i + 1) {
-    sk[i] = Math.round(255.0 * probabilities[i]);
+  for (let i = 0; i < probabilitiesR.length; i = i + 1) {
+    skR[i] = Math.round(255.0 * probabilitiesR[i]);
   }
-
+  for (let i = 0; i < probabilitiesG.length; i = i + 1) {
+    skG[i] = Math.round(255.0 * probabilitiesG[i]);
+  }
+  for (let i = 0; i < probabilitiesB.length; i = i + 1) {
+    skB[i] = Math.round(255.0 * probabilitiesB[i]);
+  }
+  console.log(skR,skG,skB)
   for (let i = 0; i < pixels.data.length; i = i + 4) {
-    data[i] = sk[original_copy[i]];
-    data[i + 1] = sk[original_copy[i + 1]];
-    data[i + 2] = sk[original_copy[i + 2]];
+    data[i] = skR[original_copy[i]];
+    data[i + 1] = skG[original_copy[i]];
+    data[i + 2] = skB[original_copy[i]];
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   getFrequencies();
