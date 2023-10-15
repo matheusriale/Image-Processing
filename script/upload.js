@@ -24,3 +24,9 @@ function upload(event){       // função chamada
         
     })
 }
+
+function download(){
+    let a = document.getElementById("downloadFile")
+    a.setAttribute("download","processed_image.png")
+    a.setAttribute("href",canvas.toDataURL("image/png").replace("image/png","image/octet-stream"))
+}
