@@ -9,7 +9,7 @@
 [ ] -> por fazer
 
 *Equalização de histograma está acumulando
-*Separar mais histogramas (estão próximos, juntando as coordenadas)
+
 
 - [p] Negativo
 - [p] Transformações logarítmicas
@@ -41,5 +41,5 @@
 - [p] Sépia 
 - [p] Escala com interpolação pelo vizinho mais próximo 
 - [p] Escala com interpolação linear
-- [] Rotação com interpolação pelo vizinho mais próximo 
-- [] Rotação com interpolação linear
+- [p] Rotação com interpolação pelo vizinho mais próximo 
+- [p] Rotação com interpolação linear

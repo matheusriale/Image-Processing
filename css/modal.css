@@ -45,6 +45,7 @@ height: 300px;
 background: black;
 }
 .labels{
+  gap:1rem;
   display: flex;
   }
 

@@ -1,14 +1,6 @@
 let submenu, currentSubmenu;
 
 function openSubmenu(value) {
-  if (
-    submenu &&
-    submenu.style.display === "block" &&
-    currentSubmenu === value
-  ) {
-    submenu.style.display = "none";
-    return;
-  }
   if (submenu) {
     submenu.style.display = "none";
   }
