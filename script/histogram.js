@@ -17,6 +17,7 @@ function getFrequencies(){
     max_frequencyG = 0;
     max_frequencyB = 0;
     max_frequencyI = 0;
+
     const pixel =  new Uint32Array(pixels.data.buffer);
     for (let i = 0; i<pixel.length;i++){
         const r = pixel[i] & 0xff;  // Calc de intensidades
@@ -27,6 +28,7 @@ function getFrequencies(){
         histG[g] = histG[g] + 1; 
         histB[b] = histB[b] + 1; 
         histI[mean] = histI[mean] + 1
+
     }
     
     for (let i = 0;i<256;i++){
@@ -174,4 +176,5 @@ function drawHistogram(){
         contexthistI.fillText("255",canvashistI.width-20,canvashistI.height);
     
     }
+    
 }
