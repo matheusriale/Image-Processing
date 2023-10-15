@@ -153,7 +153,6 @@ function drawHistogram(){
     
     }
     if(pixels){
-        console.log("a")
         contexthistI.clearRect(0,0,canvashistI.width,canvashistI.height);
         const sizebar= 10;
         const starty = canvashistI.height - sizebar;

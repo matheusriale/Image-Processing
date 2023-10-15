@@ -8,13 +8,15 @@
 
 [ ] -> por fazer
 
+*Equalização de histograma está acumulando (erro)
+
 - [p] Negativo
 - [p] Transformações logarítmicas
 - [p] Potência (correção de gama)
 - [p] Linear definidas por partes
 - [p] Esteganografia
 - [p] Histograma 
-- [ ] Equalização de histograma
+- [p] Equalização de histograma
 - [p] Limiarização 
 - [p] Aplicação de filtro genérico por convolução
 - [p] Filtro de suavização da média (simples e ponderado) 
@@ -28,7 +30,7 @@
 - [ ] Transformada Inversa 
 - [p] Chroma-Key 
 - [p] Histograma (R, G, B e I) 
-- [ ] Equalização de Histograma em imagens coloridas (RGB) 
+- [p] Equalização de Histograma em imagens coloridas (RGB) 
 - [ ] Equalização de Histograma em imagens coloridas (HSI) 
 - [p] Suavização e Aguçamento em imagens coloridas 
 - [p] Ferramenta para transformação entre sistemas de cores: RGB<->HSV

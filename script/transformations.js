@@ -144,28 +144,20 @@ function histEqualize() {
   //probabilidades acumuladas
   for (let i = 1; i < probabilitiesR.length; i = i + 1) {
     probabilitiesR[i] = probabilitiesR[i] + probabilitiesR[i - 1];
-  }
-  for (let i = 1; i < probabilitiesG.length; i = i + 1) {
     probabilitiesG[i] = probabilitiesG[i] + probabilitiesG[i - 1];
-  }
-  for (let i = 1; i < probabilitiesB.length; i = i + 1) {
     probabilitiesB[i] = probabilitiesB[i] + probabilitiesB[i - 1];
   }
 
   for (let i = 0; i < probabilitiesR.length; i = i + 1) {
     skR[i] = Math.round(255.0 * probabilitiesR[i]);
-  }
-  for (let i = 0; i < probabilitiesG.length; i = i + 1) {
     skG[i] = Math.round(255.0 * probabilitiesG[i]);
-  }
-  for (let i = 0; i < probabilitiesB.length; i = i + 1) {
     skB[i] = Math.round(255.0 * probabilitiesB[i]);
   }
-  console.log(skR,skG,skB)
+  
   for (let i = 0; i < pixels.data.length; i = i + 4) {
     data[i] = skR[original_copy[i]];
-    data[i + 1] = skG[original_copy[i]];
-    data[i + 2] = skB[original_copy[i]];
+    data[i + 1] = skG[original_copy[i+1]];
+    data[i + 2] = skB[original_copy[i+2]];
   }
   context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
   getFrequencies();

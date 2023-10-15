@@ -187,7 +187,10 @@
           <div class="submenu" id="colors">
             <ul>
               <li>
-                <button onclick="openModal('histograms')">Histograms</button>
+                <button onclick="openModal('histograms')">Histograms RGBI</button>
+              </li>
+              <li>
+                <button onclick="openModal('histogramsHSI')">Histograms HSI</button>
               </li>
               <li>
                 <button onclick="openModal('rgbToHSVModal')">RGB<->HSV</button>
@@ -268,7 +271,7 @@
 
     <div class="modal" id="histograms">
       <div class="content">
-        <h2>Histograms R,G,B and I </h2>
+        <h2>Histograms RGBI </h2>
         <div class="labels">
           <div>
             <canvas id = "histogramR" width = "150" height = "150"></canvas>
@@ -278,6 +281,27 @@
           </div>
           <div>
             <canvas id = "histogramB" width = "150" height = "150"></canvas>
+          </div>
+          <div>
+            <canvas id = "histogramI" width = "150" height = "150"></canvas>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="histogramsHSI">
+      <div class="content">
+        <h2>Histograms HSI </h2>
+        <div class="labels">
+          <div>
+            <canvas id = "histogramH" width = "150" height = "150"></canvas>
+          </div>
+          <div>
+            <canvas id = "histogramS" width = "150" height = "150"></canvas>
           </div>
           <div>
             <canvas id = "histogramI" width = "150" height = "150"></canvas>
