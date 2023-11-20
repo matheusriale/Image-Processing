@@ -219,6 +219,30 @@
             </ul>
           </div>
         </li>
+
+        <li onclick="openSubmenu('compression')">
+          <i class="ph ph-file-archive"></i>
+          <div class="submenu" id="compression">
+            <ul>
+              <li>
+                <button onclick="runLength()">
+                  Compress
+                </button>
+              </li>
+              <li>
+                <button onclick="UndoRunLength()">
+                  Decompress
+                </button>
+              </li>
+              <li>
+                <button onclick="downloadCompressed()">
+                  Download
+                </button>
+              </li>
+            </ul>
+          </div>
+        </li>
+
       </ul>
     </nav>
 
@@ -374,5 +398,6 @@
     <script src="script/steganography.js"></script>
     <script src="script/upload.js"></script>
     <script src="script/modal.js"></script>
+    <script src="script/compression.js"></script>
   </body>
 </html>
