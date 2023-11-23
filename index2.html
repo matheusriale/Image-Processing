@@ -230,13 +230,19 @@
                 </button>
               </li>
               <li>
-                <button onclick="UndoRunLength()">
-                  Decompress
+                <button onclick="downloadCompressed()">
+                  Download
                 </button>
               </li>
               <li>
-                <button onclick="downloadCompressed()">
-                  Download
+                <button>
+                  <label for="uploadC">Upload Compressed</label
+                  ><input id="uploadC" type="file" onchange="uploadCompressed(event)" />
+                </button>
+              </li>
+              <li>
+                <button onclick="UndoRunLength()">
+                  Decompress
                 </button>
               </li>
             </ul>

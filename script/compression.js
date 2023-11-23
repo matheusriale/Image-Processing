@@ -1,9 +1,11 @@
 
 let compressedImage = [];
+let decompressedImage = [];
+var datac;
 
 function runLength () {
-    let copypixels = pixels; // Copiar valores, novo array
-    let data = copypixels.data;
+
+    let data = pixels.data;
     
     let countr = 1;
     for (let i = 0; i < data.length; i += 4) {
@@ -18,32 +20,50 @@ function runLength () {
     }
 
     compressedImage = new Uint8ClampedArray(compressedImage);
-    console.log(compressedImage);
-    console.log(data);
-}
-
-function UndoRunLength () {
-    let copypixels = pixels; //copiar valores, novo array
-    let data = copypixels.data;
-    
-    const decompressedImage = [];
-
-    for (let i = 0; i < compressedImage.length; i += 2) {
-        // Adiciona o elemento repetido a quantidade de vezes especificada pela contagem
-        decompressedImage.push(...Array(compressedImage[i + 1]).fill(compressedImage[i]));
-    }
-
-    context.putImageData(pixels, 0, 0, 0, 0, canvas.width, canvas.height);
-    getFrequencies();
-    drawHistogram();
+    console.log("Imagem Comprimida: " + compressedImage);
 }
 
 function downloadCompressed() {
 
-    console.log(compressedImage);
     var blob = new Blob([compressedImage]);
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
     link.download = "compressed.mr";
     link.click();
+}
+
+function uploadCompressed (event) {
+
+    const fileList = event.target.files;
+
+    var fr = new FileReader();
+    fr.readAsArrayBuffer(fileList[0]);
+
+    fr.onload = function(e) {
+        datac = new Uint8ClampedArray(fr.result);
+        console.log("Imagem Comprimida (upload): " + datac);
+    }
+}
+
+function UndoRunLength () {
+
+    for (let i = 0; i < datac.length; i += 5) {
+        for (let j = 0; j < datac[i+4]; j += 1) {
+            // Adiciona o elemento repetido a quantidade de vezes especificada pela contagem
+            decompressedImage.push(datac[i], datac[i+1], datac[i+2], datac[i+3]);
+        }
+    }
+
+    // PROBLEMA COM O TAMANHO DA IMAGEM DESCOMPRIMIDA (NÃO É MULTIPLA DA LARGURA DO CANVAS)
+    decompressedImage = new Uint8ClampedArray(decompressedImage);
+    console.log("Imagem Descomprimida: " + decompressedImage);
+
+    console.log(canvas.width);
+    console.log(decompressedImage);
+    var imgdt = new ImageData(decompressedImage, canvas.width);
+    context.putImageData(imgdt, 0, 0);
+    pixels = context.getImageData(0, 0, canvas.width, canvas.height);
+    original_copy = [...pixels.data]
+    getFrequencies();
+    drawHistogram();
 }

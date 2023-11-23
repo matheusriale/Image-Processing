@@ -1,7 +1,7 @@
 var canvas = document.getElementById("image"); // criar canvas (representa desenho)
 var context = canvas.getContext("2d");         // estrutura que recebe dados para desenho
 var pixels = undefined;
-var image ;
+var image;
 var original_copy = pixels;
 
 function upload(event){       // função chamada
@@ -21,7 +21,7 @@ function upload(event){       // função chamada
         image.style.display="none"; // Não mostrar a imagem
         // Vemos apenas o Canvas
         closeSubmenu();
-        
+        console.log("Imagem Original: " + pixels.data);        
     })
 }
 
