@@ -21,7 +21,8 @@ function upload(event){       // função chamada
         image.style.display="none"; // Não mostrar a imagem
         // Vemos apenas o Canvas
         closeSubmenu();
-        console.log("Imagem Original: " + pixels.data);        
+        console.log("Imagem Original: " + pixels.data);
+        console.log(pixels.data);
     })
 }
 

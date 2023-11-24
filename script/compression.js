@@ -1,6 +1,8 @@
 
 let compressedImage = [];
+let compressedImageUint8;
 let decompressedImage = [];
+let decompressedImageUint8;
 var datac;
 
 function runLength () {
@@ -10,7 +12,7 @@ function runLength () {
     let countr = 1;
     for (let i = 0; i < data.length; i += 4) {
         // Verifica se o próximo elemento é igual ao atual
-        if (data[i] === data[i + 4] && data[i+1] === data[i+1 + 4] && data[i+2] === data[i+2 + 4]) {    // Math.abs(data[i] - data[i + 4]) < 10 && Math.abs(data[i+1] - data[i+1 + 4]) < 10 && Math.abs(data[i+2] - data[i+2 + 4]) < 10
+        if (data[i] === data[i + 4] && data[i+1] === data[i+1 + 4] && data[i+2] === data[i+2 + 4] && countr < 255) {
             countr++;
         } else {
             // Se não for igual, adiciona o elemento atual e a contagem ao vetor comprimido
@@ -19,13 +21,14 @@ function runLength () {
         }
     }
 
-    compressedImage = new Uint8ClampedArray(compressedImage);
-    console.log("Imagem Comprimida: " + compressedImage);
+    compressedImageUint8 = new Uint8ClampedArray(compressedImage);
+    console.log("Imagem Comprimida: " + compressedImageUint8);
+    console.log(compressedImageUint8);
 }
 
 function downloadCompressed() {
 
-    var blob = new Blob([compressedImage]);
+    var blob = new Blob([compressedImageUint8]);
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
     link.download = "compressed.mr";
@@ -42,10 +45,11 @@ function uploadCompressed (event) {
     fr.onload = function(e) {
         datac = new Uint8ClampedArray(fr.result);
         console.log("Imagem Comprimida (upload): " + datac);
+        console.log(datac);
     }
 }
 
-function UndoRunLength () {
+function undoRunLength () {
 
     for (let i = 0; i < datac.length; i += 5) {
         for (let j = 0; j < datac[i+4]; j += 1) {
@@ -54,16 +58,15 @@ function UndoRunLength () {
         }
     }
 
-    // PROBLEMA COM O TAMANHO DA IMAGEM DESCOMPRIMIDA (NÃO É MULTIPLA DA LARGURA DO CANVAS)
-    decompressedImage = new Uint8ClampedArray(decompressedImage);
-    console.log("Imagem Descomprimida: " + decompressedImage);
+    decompressedImageUint8 = new Uint8ClampedArray(decompressedImage);
+    console.log("Imagem Descomprimida: " + decompressedImageUint8);
+    console.log(decompressedImageUint8);
 
-    console.log(canvas.width);
-    console.log(decompressedImage);
-    var imgdt = new ImageData(decompressedImage, canvas.width);
+    var imgdt = new ImageData(decompressedImageUint8, canvas.width);
     context.putImageData(imgdt, 0, 0);
     pixels = context.getImageData(0, 0, canvas.width, canvas.height);
     original_copy = [...pixels.data]
     getFrequencies();
     drawHistogram();
+    closeSubmenu();
 }
