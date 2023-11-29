@@ -18,11 +18,14 @@ function upload(event){       // função chamada
         original_copy = [...pixels.data]
         getFrequencies();
         drawHistogram();
+        console.log("Tam Imagem Original: " + pixels.data);
+        console.log(pixels.data);
         image.style.display="none"; // Não mostrar a imagem
         // Vemos apenas o Canvas
         closeSubmenu();
-        console.log("Imagem Original: " + pixels.data);
-        console.log(pixels.data);
+        // console.log("Imagem Original: " + pixels.data);
+        // console.log(pixels.data);
+
     })
 }
 

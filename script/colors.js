@@ -72,7 +72,7 @@ function rgbToHSV(r,g,b){
     else{s = 0}
     s = s *100
     v = v_max*100;
-    console.log(h)
+    //console.log(h)
     return [h,s,v];
 
 }
