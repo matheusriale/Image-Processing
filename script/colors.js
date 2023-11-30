@@ -80,7 +80,7 @@ function rgbToHSV(r,g,b){
 function hsvToRGB(h,s,v){//h (0-360), s(0-100) v(0-100)
     s = s/100
     v = v/100
-    console.log(h)
+    //console.log(h)
     let c = v*s
     let x = c*(1-Math.abs((h/60)%2 - 1))
     let m = v-c 
