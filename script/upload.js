@@ -8,9 +8,9 @@ function upload(event){       // função chamada
     image = new Image();
     image.src = URL.createObjectURL(event.target.files[0]); //Pegar link da imagem
     image.addEventListener("load",()=>{   // Força tag a ter certo comportamento
-        const width = image.width > 500 ? 500 : image.width;
-        canvas.width = width;
-        canvas.height = (width/image.width) *image.height;
+        const width = image.width;
+        canvas.width = image.width;
+        canvas.height = image.height;
         original_width = canvas.width;
         original_height = canvas.height;
         context.drawImage(image,0,0,canvas.width,canvas.height); // Desenhar imagem dentro do contexto
@@ -31,6 +31,6 @@ function upload(event){       // função chamada
 
 function download(){
     let a = document.getElementById("downloadFile")
-    a.setAttribute("download","processed_image.png")
-    a.setAttribute("href",canvas.toDataURL("image/png").replace("image/png","image/octet-stream"))
+    a.setAttribute("download","processed_image.bmp")
+    a.setAttribute("href",canvas.toDataURL("image/bmp").replace("image/bmp","image/octet-stream"))
 }
