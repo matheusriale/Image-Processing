@@ -1,45 +1,23 @@
-### Checklist
+## Instruções para compressão de imagens:
 
-[i] -> implementado mas não colocado na interface ainda
+## 1. Upload de imagem
 
-[x] -> implementado e colocado na interface
+Primeiro vamos fazer o ulpoad de uma imagem para fazermos a compressão, assim como na versão anterior, na mesma aba:
 
-[p] -> PRONTO
-
-[ ] -> por fazer
-
-*Equalização de histograma está acumulando
+![image](https://github.com/matheusriale/Image-Processing/assets/78040711/d20a75f9-9d17-422c-8383-19fa8cf0a495)
 
 
-- [p] Negativo
-- [p] Transformações logarítmicas
-- [p] Potência (correção de gama)
-- [p] Linear definidas por partes
-- [p] Esteganografia
-- [p] Histograma 
-- [p] Equalização de histograma
-- [p] Limiarização 
-- [p] Aplicação de filtro genérico por convolução
-- [p] Filtro de suavização da média (simples e ponderado) 
-- [p] Filtragem pela mediana 
-- [p] Aguçamento (nitidez) por Laplaciano 
-- [p] High-Boost 
-- [p] Filtros de Sobel 
-- [p] Detecção não linear de bordas pelo gradiente (magnitude) 
-- [ ] Cálculo da Transformada Discreta de Fourier 
-- [ ] Exibição e edição do espectro
-- [ ] Transformada Inversa 
-- [p] Chroma-Key 
-- [p] Histograma (R, G, B e I) 
-- [p] Equalização de Histograma em imagens coloridas (RGB) 
-- [p] Equalização de Histograma em imagens coloridas (HSI) 
-- [p] Suavização e Aguçamento em imagens coloridas 
-- [p] Ferramenta para transformação entre sistemas de cores: RGB<->HSV
-- [p] Ajuste de Matiz 
-- [p] Saturação e Brilho 
-- [p] Ajuste de Canal (C/R, M/G, Y/B) 
-- [p] Sépia 
-- [p] Escala com interpolação pelo vizinho mais próximo 
-- [p] Escala com interpolação linear
-- [p] Rotação com interpolação pelo vizinho mais próximo 
-- [p] Rotação com interpolação linear
+## 2. Sessão de compressão
+
+Agora temos a sessão de compressão de imagens no nosso processador de imagens:
+
+![image](https://github.com/matheusriale/Image-Processing/assets/78040711/bc1794eb-5971-4fa4-8ae1-a2f09cfc8bad)
+
+## 3. Fazendo o processo
+
+O passo a passo segue como está no programa (você pode ainda usar o console do navegador para verificar o tamanho dos vetores durante a compressão).
+
+1. Primeiro você clica no botão 'Full Compress' para comprimirmos a imagem.
+2. No botão 'Donwload Compressed' iremos baixar o arquivo da imagem comprimido .mr
+3. No botão 'Upload compressed' você irá enviar o arquivo comprimido para descompactarmos posteriormente.
+4. Em 'Full decompress' iremos descompactar o arquivo .mr como imagem e mostrar na tela.
